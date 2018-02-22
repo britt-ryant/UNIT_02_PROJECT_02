@@ -1,0 +1,29 @@
+{
+  "name": "unit_02_project_02",
+  "version": "1.0.0",
+  "description": "This is the main file for my second project for Unit 02",
+  "main": "sever.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/britt-ryant/UNIT_02_PROJECT_02.git"
+  },
+  "author": "Ryan Britt",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/britt-ryant/UNIT_02_PROJECT_02/issues"
+  },
+  "homepage": "https://github.com/britt-ryant/UNIT_02_PROJECT_02#readme",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "ejs": "^2.5.7",
+    "express": "^4.16.2",
+    "method-override": "^2.3.10",
+    "morgan": "^1.9.0",
+    "pg-promise": "^7.5.4"
+  }
+}
