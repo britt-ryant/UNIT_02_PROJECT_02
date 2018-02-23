@@ -8,10 +8,10 @@ const db = pgp(dbConfig);
 
 module.exports = {
 //******************** test function to make sure that everything is linked ******************
-	// showLib() {
-	// 	console.log(`maiking it here`)
-	// 	return db.many(`SELECT * FROM fish_library;`)
-	// },
+	showLib() {
+		console.log(`maiking it here`)
+		return db.many(`SELECT * FROM fish_library;`)
+	},
 //******************** test function to make sure that everything is linked ******************
 
 	showOne(id) {
