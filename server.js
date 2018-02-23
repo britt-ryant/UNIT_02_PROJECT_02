@@ -33,6 +33,13 @@ app.use(express.static(`public`));
 app.set(`views`, path.join(__dirname, `views`));
 app.set(`view engine`, `ejs`);
 
+app.use(`/`, (req, res) => {
+	res.render(`index`, {
+		documentTitle: `Fish app`,
+		mainContent: `This is my fishing app, ADD MORE TEXT HERE!!!`
+	})
+})
+
 
 app.get(`*`, (req, res) => {
 	res.status(404).send(`404 : NOT FOUND  💔`)
