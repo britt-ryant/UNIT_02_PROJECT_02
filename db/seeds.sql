@@ -1,4 +1,4 @@
-INSERT INTO fish_library (species, length, weight, points) VALUES 
+INSERT INTO fish_library (species, length, weight, price) VALUES 
 (
 	'Bigeye Tuna',
 	80,
@@ -8,12 +8,12 @@ INSERT INTO fish_library (species, length, weight, points) VALUES
 	'Yellowfin Tuna',
 	60,
 	150,
-	5
+	3
 ),(
 	'Bluefin Tuna',
 	120,
 	1400,
-	100
+	12
 ),(
 	'Albacore Tuna',
 	40,
@@ -23,25 +23,25 @@ INSERT INTO fish_library (species, length, weight, points) VALUES
 	'Blue Marlin',
 	150,
 	1100,
-	200
+	0
 ),(
 	'White Marlin',
 	100,
 	150,
-	50
+	0
 ),(
 	'Swordfish',
 	120,
 	1000,
-	75
+	5
 ),(
 	'Mako',
 	120,
 	1000,
-	60
+	4
 ),(
 	'Mahi mahi',
 	50,
 	40,
-	2
+	6
 );

@@ -13,6 +13,6 @@ CREATE TABLE fish_library (
 	species VARCHAR(255),
 	length INTEGER,
 	weight INTEGER,
-	points INTEGER,
+	price INTEGER,
 	date_created TIMESTAMP NOT NULL DEFAULT NOW()
 );

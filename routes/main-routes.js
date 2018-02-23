@@ -5,7 +5,7 @@ const mainRouter = require(`express`).Router();
 const mainController = require(`../controllers/main_controller/mainController.js`)
 
 
-mainRouter.get(`/`, mainController.index)
+mainRouter.get(`/`, mainController.getOneFish)
 
 
 
