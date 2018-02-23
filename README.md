@@ -15,6 +15,16 @@ Phases of Completion
 
 3) finesse the CSS to make the app more visually appealing, add to the databases create an add picture/species feature to the main database.
 
+*** Additional features include ***
+-creating a recommended locations table that list destinations that are recommended based on the fewest number of species in user db that correspond to that region
+-including an itinerary API giving lists of all travel accommodations in that location and best specific resorts
+-10 day weather, pulling data from an API that displays the weather in that location
+-Make the species list season specific
+*********************************
+
+NOTE: additional features are out of scope for this project and the time allotted, however should be considered before deployment on portfolio
+
+
 Links and Resources
 MDN
 classwork
