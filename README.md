@@ -15,6 +15,10 @@ Phases of Completion
 
 3) finesse the CSS to make the app more visually appealing, add to the databases create an add picture/species feature to the main database.
 
+*** Technologies include ***
+-Express/node/ejs/pg-promise
+-an additional API may be added with additional features
+
 *** Additional features include ***
 -creating a recommended locations table that list destinations that are recommended based on the fewest number of species in user db that correspond to that region
 -including an itinerary API giving lists of all travel accommodations in that location and best specific resorts

@@ -1,47 +1,148 @@
-INSERT INTO fish_library (species, length, weight, price) VALUES 
+INSERT INTO fish_library (species, weight, caught, info) VALUES 
 (
 	'Bigeye Tuna',
-	80,
 	400,
-	10
+	'N',
+	''
 ),(
 	'Yellowfin Tuna',
-	60,
 	150,
-	3
+	'N',
+	''
 ),(
 	'Bluefin Tuna',
-	120,
 	1400,
-	12
+	'N',
+	''
 ),(
 	'Albacore Tuna',
-	40,
 	80,
-	2
+	'N',
+	''
 ),(
 	'Blue Marlin',
-	150,
 	1100,
-	0
+	'N',
+	''
 ),(
 	'White Marlin',
-	100,
 	150,
-	0
+	'N',
+	''
 ),(
 	'Swordfish',
-	120,
 	1000,
-	5
+	'N',
+	''
 ),(
 	'Mako',
-	120,
 	1000,
-	4
+	'N',
+	''
 ),(
 	'Mahi mahi',
-	50,
 	40,
-	6
+	'N',
+	''
+),(
+	'Striped Marlin',
+	150,
+	'N',
+	''
+),(
+	'Black Marlin',
+	2000,
+	'N',
+	''
+),(
+	'Atlantic Slamon',
+	300,
+	'N',
+	''
+);
+INSERT INTO fish_location (species, northeast_canyon, southern_east_coast, north_pacific, south_pacific, gulf_of_mexico) VALUES 
+(
+	'Bigeye Tuna',
+	'Y',
+	'Y',
+	'N',
+	'N',
+	'N'
+),(
+	'Yellowfin Tuna',
+	'Y',
+	'Y',
+	'N',
+	'Y',
+	'Y'
+),(
+	'Bluefin Tuna',
+	'Y',
+	'Y',
+	'Y',
+	'Y',
+	'Y'
+),(
+	'Albacore Tuna',
+	'Y',
+	'N',
+	'N',
+	'N',
+	'N'
+),(
+	'Blue Marlin',
+	'Y',
+	'Y',
+	'N',
+	'Y',
+	'Y'
+),(
+	'White Marlin',
+	'Y',
+	'Y',
+	'N',
+	'N',
+	'Y'
+),(
+	'Swordfish',
+	'Y',
+	'Y',
+	'N',
+	'Y',
+	'Y'
+),(
+	'Mako',
+	'Y',
+	'Y',
+	'Y',
+	'Y',
+	'Y'
+),(
+	'Mahi Mahi',
+	'Y',
+	'Y',
+	'N',
+	'Y',
+	'Y'
+),(
+	'Striped Marlin',
+	'N',
+	'N',
+	'N',
+	'Y',
+	'N'
+),(
+	'Black Marlin',
+	'N',
+	'N',
+	'N',
+	'Y',
+	'N'
+),(
+	'Atlanic Salmon',
+	'N',
+	'N',
+	'Y',
+	'N',
+	'N'
 );
