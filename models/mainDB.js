@@ -14,16 +14,24 @@ module.exports = {
 	},
 //******************** test function to make sure that everything is linked ******************
 
+//************************** not used at the moment ******************************************
+
 	showOne(id) {
 		console.log(`showing random fish`)
 		return db.one(`SELECT * FROM fish_library WHERE id=$1`, id)
 	},
 
-	showByLocation(location) {
-		return db.many(`SELECT fish_library.species
+//************************** not used at the moment ******************************************
+
+	showByLocation(id) {
+		console.log(id)
+		return db.any(`SELECT fish_library.species, fish_library.weight, locations.location
 			FROM fish_library 
 			JOIN fish_location 
-			ON fish_library.id=fish_location.id 
-			WHERE $1:raw='Y'`, location)
+			ON fish_library.id=fish_location.fish_id
+			JOIN locations
+			ON fish_location.location_id = locations.id
+			WHERE locations.id=$1
+			ORDER BY fish_library.species`, id)
 	},
 }

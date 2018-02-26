@@ -37,21 +37,15 @@ module.exports = {
 
 //************ NOT SURE THAT THIS WILL BE RELEVENT ***********************
 	
-	locationSpecific(req, res) {
-		console.log(req.params.location)
-		console.log(`in controller`)
-		mainDB.showByLocation(req.params.location)
+	locationSpecific(req, res, next) {
+		console.log(req.params.id)
+		mainDB.showByLocation(req.params.id)
 		.then(results => {
-			res.json({
-				message: `THIS WORKED`,
-				data: results
-			})
+			res.locals.fish = results;
+			next()
 		})
 		.catch(err => {
-			res.status(500).json({
-				message: `YOU SUCK`,
-				data: err
-			})
+			next(err)
 		})
 	}
 

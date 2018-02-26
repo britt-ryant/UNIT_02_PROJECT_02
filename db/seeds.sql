@@ -60,89 +60,87 @@ INSERT INTO fish_library (species, weight, caught, info) VALUES
 	'N',
 	''
 );
-INSERT INTO fish_location (species, northeast_canyon, southern_east_coast, north_pacific, south_pacific, gulf_of_mexico) VALUES 
-(
-	'Bigeye Tuna',
-	'Y',
-	'Y',
-	'N',
-	'N',
-	'N'
+INSERT INTO locations (location) VALUES 
+('North East Canyon'),('Southern East Coast'),('North Pacific'),('South Pacific'),('Gulf Of Mexico');
+
+INSERT INTO fish_location (fish_id, location_id) VALUES (
+1,1
 ),(
-	'Yellowfin Tuna',
-	'Y',
-	'Y',
-	'N',
-	'Y',
-	'Y'
+1,2
 ),(
-	'Bluefin Tuna',
-	'Y',
-	'Y',
-	'Y',
-	'Y',
-	'Y'
+1,4
 ),(
-	'Albacore Tuna',
-	'Y',
-	'N',
-	'N',
-	'N',
-	'N'
+1,5
 ),(
-	'Blue Marlin',
-	'Y',
-	'Y',
-	'N',
-	'Y',
-	'Y'
+2,1
 ),(
-	'White Marlin',
-	'Y',
-	'Y',
-	'N',
-	'N',
-	'Y'
+2,2
 ),(
-	'Swordfish',
-	'Y',
-	'Y',
-	'N',
-	'Y',
-	'Y'
+2,4
 ),(
-	'Mako',
-	'Y',
-	'Y',
-	'Y',
-	'Y',
-	'Y'
+2,5
 ),(
-	'Mahi Mahi',
-	'Y',
-	'Y',
-	'N',
-	'Y',
-	'Y'
+3,1
 ),(
-	'Striped Marlin',
-	'N',
-	'N',
-	'N',
-	'Y',
-	'N'
+3,2
 ),(
-	'Black Marlin',
-	'N',
-	'N',
-	'N',
-	'Y',
-	'N'
+3,3
 ),(
-	'Atlanic Salmon',
-	'N',
-	'N',
-	'Y',
-	'N',
-	'N'
-);
+3,4
+),(
+3,5
+),(
+4,1
+),(
+4,3
+),(
+5,1
+),(
+5,2
+),(
+5,4
+),(
+5,5
+),(
+6,1
+),(
+6,2
+),(
+6,5
+),(
+7,1
+),(
+7,2
+),(
+7,4
+),(
+7,5
+),(
+8,1
+),(
+8,2
+),(
+8,3
+),(
+8,4
+),(
+8,5
+),(
+9,1
+),(
+9,2
+),(
+9,4
+),(
+9,5
+),(
+10,3
+),(
+10,4
+),(
+11,3
+),(
+11,4
+),(
+12, 3
+); 

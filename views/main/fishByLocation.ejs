@@ -1,0 +1,14 @@
+<% include ../../views/partials/boilerplate.ejs %>
+
+<h1>Species List In <%=fish[0].location%></h1>
+
+<ul>
+	<% fish.forEach(fishOne => { %>
+
+		<li><%=fishOne.species%></li>
+
+	<%})%>
+</ul>
+
+
+<% include ../../views/partials/footer.ejs %>

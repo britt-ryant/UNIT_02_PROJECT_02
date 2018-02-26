@@ -8,7 +8,7 @@ const views = require(`../controllers/views_controller/viewsController.js`)
 
 mainRouter.get(`/`, mainController.allSpecies, views.index);
 
-mainRouter.get(`/:location`, mainController.locationSpecific);
+mainRouter.get(`/:id`, mainController.locationSpecific, views.locationSpecific);
 
 
 
