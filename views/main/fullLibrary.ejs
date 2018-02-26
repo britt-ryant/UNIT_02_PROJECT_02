@@ -1,0 +1,13 @@
+<% include ../../views/partials/boilerplate.ejs %>
+
+<h1>Full Species List</h1>
+
+<ul>
+	<% species.forEach((species) => { %>
+
+	<li><%= species.species %></li>
+
+	<% }) %> 
+</ul>
+
+<% include ../../views/partials/footer.ejs %>

@@ -2,6 +2,6 @@
 
 module.exports = {
 	index(req, res) {
-		res.render(`main/altMainSheet`)
+		res.render(`main/index`)
 	},
 }

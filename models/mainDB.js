@@ -24,6 +24,6 @@ module.exports = {
 			FROM fish_library 
 			JOIN fish_location 
 			ON fish_library.id=fish_location.id 
-			WHERE $1='Y'`, location)
+			WHERE $1:raw='Y'`, location)
 	},
 }
