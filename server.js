@@ -8,7 +8,8 @@ const bodyParser = require('body-parser');
 const methodOverride = require('method-override');
 const path = require('path');
 const mainRouter = require(`./routes/main-routes.js`);
-const session = require(`express-session`)
+const fishRouter = require(`./routes/fish-routes.js`);
+const session = require(`express-session`);
 //confiure the port 
 const PORT = process.env.PORT || 3000;
 
@@ -42,6 +43,8 @@ app.set(`view engine`, `ejs`);
 
 //**** Route to generate random fish information.  Will be set to generate a random fish for now and return the json object for developmental purposes, will modify later ****
 app.use(`/gofish`, mainRouter);
+
+app.use(`/fishlist`, fishRouter);
 
 //Landing page
 app.use(`/`, (req, res) => {

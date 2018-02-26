@@ -9,7 +9,7 @@ const views = require(`../controllers/views_controller/viewsController.js`)
 mainRouter.route(`/`)
 			.get(mainController.allSpecies, views.index);
 
-mainRouter.get(`/refresh`, views.handleUpdate)
+
 
 
 mainRouter.route(`/:id`)

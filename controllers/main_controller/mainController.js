@@ -17,7 +17,7 @@ module.exports = {
 
 //************ NOT SURE THAT THIS WILL BE RELEVENT ***********************
 
-	getOneFish(req, res) {
+	getOneFishRandom(req, res) {
 		//nine is hardcoded number of fish in the database, must be channged later!!!!!!
 		let randomFishId = Math.ceil(Math.random()*9)
 		mainDB.showOne(randomFishId)
@@ -75,14 +75,10 @@ module.exports = {
 	},
 
 	createLocation(req, res, next) {
-		// console.log(`Im here`)
-		// console.log(req.params.id)
-		// console.log(req.session.newFish.fish_lib_id)
 		let newFishInfo = {
 			newId: req.session.newFish.fish_lib_id,
 			newLoc: parseInt(req.params.id)
 		}
-		console.log(newFishInfo)
 		mainDB.makeNewLocation(newFishInfo)
 		.then(result => {
 			res.locals.newLoc = result;
@@ -91,11 +87,7 @@ module.exports = {
 		.catch(err => {
 			next(err);
 		})
-	}
-
-
-
-
+	},
 
 
 }
