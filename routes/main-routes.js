@@ -6,9 +6,15 @@ const mainController = require(`../controllers/main_controller/mainController.js
 const views = require(`../controllers/views_controller/viewsController.js`)
 
 
-mainRouter.get(`/`, mainController.allSpecies, views.index);
+mainRouter.route(`/`)
+			.get(mainController.allSpecies, views.index);
 
-mainRouter.get(`/:id`, mainController.locationSpecific, views.locationSpecific);
+mainRouter.get(`/refresh`, views.handleUpdate)
+
+
+mainRouter.route(`/:id`)
+	.get(mainController.locationSpecific, views.locationSpecific)
+	.post(mainController.createFish, mainController.createLocation, views.handleUpdate)
 
 
 

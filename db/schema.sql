@@ -12,7 +12,7 @@ DROP TABLE IF EXISTS fish_location;
 DROP TABLE IF EXISTS locations;
 
 CREATE TABLE fish_library (
-	id SERIAL PRIMARY KEY,
+	fish_lib_id SERIAL PRIMARY KEY,
 	species VARCHAR(255),
 	weight INTEGER,
 	caught VARCHAR(255),

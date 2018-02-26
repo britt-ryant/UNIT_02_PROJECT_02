@@ -5,10 +5,23 @@
 <ul>
 	<% fish.forEach(fishOne => { %>
 
-		<li><%=fishOne.species%></li>
+		<a href="/gofish/<%=fishOne.id%>/<%=fishOne.species%>"><li><h2><%=fishOne.species%></h2><br><p><%=fishOne.weight%></p></li></a><br>
 
 	<%})%>
+
 </ul>
+
+<h2>New fish to list</h2>
+<form action="/gofish/<%=fish[0].id%>" method="post">
+  <input name="species" type="text" placeholder="Species"/>
+  <input name="weight" type="text" placeholder="Weight"/>
+  <input name="caught" type="text" placeholder="Caught?"/>
+  <input name="info" type="text" placeholder="Info"/>
+
+  <input type="submit" value="Add it!" />
+ </form>
+
+
 
 
 <% include ../../views/partials/footer.ejs %>

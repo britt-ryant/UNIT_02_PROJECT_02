@@ -7,7 +7,8 @@ const logger = require('morgan');
 const bodyParser = require('body-parser');
 const methodOverride = require('method-override');
 const path = require('path');
-const mainRouter = require(`./routes/main-routes.js`)
+const mainRouter = require(`./routes/main-routes.js`);
+const session = require(`express-session`)
 //confiure the port 
 const PORT = process.env.PORT || 3000;
 
@@ -22,8 +23,14 @@ app.use(methodOverride(`_method`));
 
 //configure the app
 app.use(logger(`dev`));
-app.use(bodyParser.json());
+// app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
+
+app.use(session({
+	resave: false, 
+	saveUninitialized: false,
+	secret:"shhhh secret",
+}))
 
 //static configuration
 

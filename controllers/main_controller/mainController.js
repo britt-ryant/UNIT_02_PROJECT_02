@@ -47,6 +47,55 @@ module.exports = {
 		.catch(err => {
 			next(err)
 		})
+	}, 
+//**************** WILL REVISIT *******************
+	fishSpecific(req, res, next) {
+		console.log(req.body)
+		mainDB.singleFishFullInfo(req.params.species)
+		.then(result => {
+			res.locals.singleFish = result;
+			next()
+		})
+		.catch(err => {
+			next(err)
+		})
+	},
+
+//**************** WILL REVISIT *******************
+	
+	createFish(req, res, next) {
+		mainDB.makeNewFish(req.body)
+		.then(result => {
+			req.session.newFish = result;
+			next();
+		})
+		.catch(err => {
+			next(err);
+		})
+	},
+
+	createLocation(req, res, next) {
+		// console.log(`Im here`)
+		// console.log(req.params.id)
+		// console.log(req.session.newFish.fish_lib_id)
+		let newFishInfo = {
+			newId: req.session.newFish.fish_lib_id,
+			newLoc: parseInt(req.params.id)
+		}
+		console.log(newFishInfo)
+		mainDB.makeNewLocation(newFishInfo)
+		.then(result => {
+			res.locals.newLoc = result;
+			next()
+		})
+		.catch(err => {
+			next(err);
+		})
 	}
+
+
+
+
+
 
 }

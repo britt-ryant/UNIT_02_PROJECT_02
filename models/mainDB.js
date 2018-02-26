@@ -25,13 +25,30 @@ module.exports = {
 
 	showByLocation(id) {
 		console.log(id)
-		return db.any(`SELECT fish_library.species, fish_library.weight, locations.location
+		return db.any(`SELECT fish_library.species, fish_library.fish_lib_id, fish_library.weight, locations.location, locations.id 
 			FROM fish_library 
 			JOIN fish_location 
-			ON fish_library.id=fish_location.fish_id
+			ON fish_library.fish_lib_id=fish_location.fish_id
 			JOIN locations
 			ON fish_location.location_id = locations.id
 			WHERE locations.id=$1
 			ORDER BY fish_library.species`, id)
 	},
+//**************** WILL REVISIT *******************
+	singleFishFullInfo(name) {
+
+		return db.one(`SELECT * 
+			FROM fish_library
+			WHERE species=$1`, name)
+	},
+//**************** WILL REVISIT *******************
+	makeNewFish(fish) {
+		return db.one(`INSERT INTO fish_library(species, weight, caught, info) VALUES ($[species], $[weight], $[caught], $[info]) RETURNING fish_lib_id`, fish)
+	},
+
+
+	makeNewLocation(fish) {
+		return db.one(`INSERT INTO fish_location(fish_id, location_id) VALUES ($[newId], $[newLoc]) RETURNING id`, fish)		
+	}
+
 }
