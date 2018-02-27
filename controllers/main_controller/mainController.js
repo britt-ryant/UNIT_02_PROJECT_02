@@ -7,8 +7,8 @@ module.exports = {
 		mainDB.getLocations()
 			.then(results => {
 				res.locals.location = results;
-				console.log(results)
-				console.log(res.locals.location)
+				// console.log(results)
+				// console.log(res.locals.location)
 				next()
 			})
 			.catch(err => {

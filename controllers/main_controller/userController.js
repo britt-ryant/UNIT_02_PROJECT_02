@@ -1,16 +1,15 @@
 const userDB = require(`../../models/userDB.js`);
+const mainDB = require(`../../models/mainDB.js`)
 
 module.exports = {
 	checkUser(req, res, next) {
 		userDB.doesUserExist(req.body.uname)
 		.then(result => {
 			req.session.error = "Please Choose another Username";
-			console.log(`I am here`, req.session.error)
 			res.redirect(`back`);
 
 		})
 		.catch(newUser => {
-			console.log(newUser)
 			req.session.user = req.body.uname;
 			req.session.error = " ";
 			next();
@@ -21,12 +20,34 @@ module.exports = {
 		userDB.createNewUser(req.session.user)
 		.then(result => {
 			req.session.user = result
-			console.log(`test`, req.session.user)
-			console.log(result)
 			next()
 		})
 		.catch(err => {
 			next(err)
 		})
+	},
+
+	isUser(req, res, next) {
+		console.log(`made it here`)
+		console.log(req.session.user)
+		if(req.session.user !== undefined) {
+			next();
+		} else {
+			res.redirect(`/user`)
+		}
+	},
+
+	test(req, res, next) {
+		console.log(res.locals.location, res.locals.singleFishSpecies);
+		next()
 	}
+
+// 	addToUserFishData(req, res, next) {
+// 		console.log(req.params.species)
+// 		userDB.createNewUserEntry(req.params.species)
+// 		.then(result => {
+// 			res.locals.newUserFish = 			
+// 		})
+// 		.catch()
+// 	}
 };

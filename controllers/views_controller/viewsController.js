@@ -28,10 +28,16 @@ module.exports = {
 		})
 	},
 
+	submitFish(req, res) {
+		console.log(res.locals)
+		res.render(`users/userFishList`, {
+			data: req.params.species 
+		})		
+	},
+
 	handleNewUser(req, res) {
 		res.redirect(`/`)
 	},
-
 
 	handleUpdate(req, res) {
 		console.log(req.params.id)

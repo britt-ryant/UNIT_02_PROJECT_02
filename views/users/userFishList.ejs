@@ -1,0 +1,10 @@
+<h1> Add a new <%=data%> to your list! </h1>
+<h2>New fish to list</h2>
+<form action="/user/myfish/<%=data%>" method="post">
+	<input name="species" type="hidden" value="<%=data%>"/>
+  <input name="weight" type="text" placeholder="Weight"/>
+  <input name="caught" type="text" placeholder="Caught?"/>
+  <input name="info" type="text" placeholder="Info"/>
+  <input name="location" type="text" placeholder="Location"/>
+  <input type="submit" value="Add it!" />
+</form>
