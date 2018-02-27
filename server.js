@@ -55,7 +55,7 @@ app.use(`/`, (req, res) => {
 })
 
 //catch all page to set status to a 404
-app.get(`*`, (req, res) => {
+app.use(`*`, (req, res) => {
 	res.status(404).send(`404 : NOT FOUND  💔`)
 })
 

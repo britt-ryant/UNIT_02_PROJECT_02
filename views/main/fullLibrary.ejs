@@ -3,9 +3,9 @@
 <h1>Full Species List</h1>
 
 <ul>
-	<% species.forEach((species) => { %>
+	<% allFish.forEach((fish) => { %>
 
-	<li><%= species.species %></li>
+	<li><a href="/fishlist/<%=fish.species%>"><%= fish.species %></a></li>
 
 	<% }) %> 
 </ul>

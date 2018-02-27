@@ -4,12 +4,11 @@
 
 <ul>
 	<% fish.forEach(fishOne => { %>
-
 		<a href="/fishlist/<%=fishOne.species%>"><li><h2><%=fishOne.species%></h2><br><p><%=fishOne.weight%></p></li></a><br>
-
 	<%})%>
-
 </ul>
+
+
 
 <h2>New fish to list</h2>
 <form action="/gofish/<%=fish[0].id%>" method="post">

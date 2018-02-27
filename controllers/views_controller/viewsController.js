@@ -5,18 +5,20 @@ module.exports = {
 		res.render(`main/index`);
 	},
 
+	fullListOfSpecies(req, res){
+		res.render(`main/fullLibrary`, {
+			data: res.locals.allFish
+		})
+	},
+
 	locationSpecific(req, res) {
 		res.render(`main/fishByLocation`, {
 			data: res.locals.fish
 		});
-		console.log(res.locals.fish)
-		// res.locals.location = req.params.location
-		// console.log(res.locals)
 	},
 //**************** WILL REVISIT *******************
 	oneFish(req, res) {
 		res.render(`main/singleFish`)
-		console.log(res.locals.fish)
 	},
 
 //**************** WILL REVISIT *******************
