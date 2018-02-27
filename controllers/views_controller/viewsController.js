@@ -31,11 +31,14 @@ module.exports = {
 	submitFish(req, res) {
 		let location = res.locals.location;
 		let fishId = res.locals.singleFishSpecies.fish_lib_id;
-		console.log(fishId)
 		res.render(`users/userFishList`, {
 			data: req.params.species,
 			fish_id: fishId
 		})		
+	},
+
+	usersPage(req, res) {
+		res.render(`users/userPage`)
 	},
 
 	handleNewUser(req, res) {
@@ -43,9 +46,12 @@ module.exports = {
 	},
 
 	handleUpdate(req, res) {
-		console.log(req.params.id)
 		res.redirect(`/gofish/${req.params.id}`)
 	},
+
+	handleSubmitFish(req, res) {
+		res.redirect(`/user/mypage`)
+	}
 
 
 }

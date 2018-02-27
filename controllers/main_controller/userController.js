@@ -44,7 +44,7 @@ module.exports = {
 			user_fish_weight: parseInt(req.body.weight),
 			user_fish_loc_id: parseInt(req.body.location),
 			user_fish_info: req.body.info
-		}
+		};
 		console.log(newFish);
 		userDB.createUserFish(newFish)
 		.then(result => {
@@ -55,6 +55,17 @@ module.exports = {
 			next(err)
 		})
 	},
+
+	getUserFish(req, res, next) {
+		userDB.getAllUserData(req.session.user.u_id)
+		.then(results => {
+			res.locals.userData = results;
+			next()
+		})
+		.catch(err => {
+			next(err)
+		})
+	}
 
 // 	addToUserFishData(req, res, next) {
 // 		console.log(req.params.species)

@@ -9,9 +9,12 @@ userRouter.route(`/`)
 	.get(views.makeUser)
 	.post(userController.checkUser, userController.createUser, views.handleNewUser);
 
+userRouter.route(`/mypage`)
+		.get(userController.getUserFish, views.usersPage)
+
 userRouter.route(`/myfish/:species`)
 	.get(mainController.getListOfLocations, fishListController.fishSpecific, views.submitFish)
-	.post(userController.isUser, userController.createUserFish)
+	.post(userController.isUser, userController.createUserFish, views.handleSubmitFish)
 
 
 
