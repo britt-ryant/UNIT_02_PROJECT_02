@@ -54,6 +54,7 @@ CREATE TABLE user_id (
 
 CREATE TABLE user_information (
 	id SERIAL PRIMARY KEY,
+	user_id INTEGER,
 	user_fish_id INTEGER,
 	user_fish_weight INTEGER,
 	user_fish_loc_id INTEGER,

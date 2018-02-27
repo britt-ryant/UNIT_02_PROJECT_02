@@ -37,10 +37,24 @@ module.exports = {
 		}
 	},
 
-	test(req, res, next) {
-		console.log(res.locals.location, res.locals.singleFishSpecies);
-		next()
-	}
+	createUserFish(req, res, next) {
+		let newFish = {
+			user_id: req.session.user.u_id,
+			user_fish_id: parseInt(req.body.species),
+			user_fish_weight: parseInt(req.body.weight),
+			user_fish_loc_id: parseInt(req.body.location),
+			user_fish_info: req.body.info
+		}
+		console.log(newFish);
+		userDB.createUserFish(newFish)
+		.then(result => {
+			res.locals.newUserFish = result;
+			next()
+		})
+		.catch(err => {
+			next(err)
+		})
+	},
 
 // 	addToUserFishData(req, res, next) {
 // 		console.log(req.params.species)

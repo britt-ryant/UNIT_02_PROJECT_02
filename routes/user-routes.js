@@ -10,8 +10,8 @@ userRouter.route(`/`)
 	.post(userController.checkUser, userController.createUser, views.handleNewUser);
 
 userRouter.route(`/myfish/:species`)
-	.get(mainController.getListOfLocations, fishListController.fishSpecific, userController.test, views.submitFish)
-	.post(userController.isUser)
+	.get(mainController.getListOfLocations, fishListController.fishSpecific, views.submitFish)
+	.post(userController.isUser, userController.createUserFish)
 
 
 

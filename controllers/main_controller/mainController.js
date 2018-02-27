@@ -39,7 +39,7 @@ module.exports = {
 //************ NOT SURE THAT THIS WILL BE RELEVENT ***********************
 	
 	locationSpecific(req, res, next) {
-		console.log(req.params.id)
+		// console.log(req.params.id)
 		mainDB.showByLocation(req.params.id)
 		.then(results => {
 			res.locals.fish = results;
