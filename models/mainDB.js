@@ -8,6 +8,11 @@ const db = pgp(dbConfig);
 
 module.exports = {
 
+	getLocations(){
+		console.log(`making it here`)
+		return db.any(`SELECT * FROM locations;`)
+	},
+
 
 //************************** not used at the moment ******************************************
 

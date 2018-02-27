@@ -2,18 +2,19 @@
 const mainDB = require(`../../models/mainDB.js`)
 
 module.exports = {
-	
-	allSpecies(req, res, next) {
-		mainDB.showLib()
-		.then(results => {
-			res.locals.species = results;
-			next();
-		})
-		.catch(err => {
-			next(err);
-		})
-	},
 
+	getListOfLocations(req, res, next) {
+		mainDB.getLocations()
+			.then(results => {
+				res.locals.location = results;
+				console.log(results)
+				console.log(res.locals.location)
+				next()
+			})
+			.catch(err => {
+				next(err)
+			})
+	},
 
 //************ NOT SURE THAT THIS WILL BE RELEVENT ***********************
 
@@ -48,20 +49,6 @@ module.exports = {
 			next(err)
 		})
 	}, 
-//**************** WILL REVISIT *******************
-	fishSpecific(req, res, next) {
-		console.log(req.body)
-		mainDB.singleFishFullInfo(req.params.species)
-		.then(result => {
-			res.locals.singleFish = result;
-			next()
-		})
-		.catch(err => {
-			next(err)
-		})
-	},
-
-//**************** WILL REVISIT *******************
 	
 	createFish(req, res, next) {
 		mainDB.makeNewFish(req.body)

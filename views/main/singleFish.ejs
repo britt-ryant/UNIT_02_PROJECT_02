@@ -1,6 +1,18 @@
 <% include ../../views/partials/boilerplate.ejs %>
 
+</h1><%=singleFishSpecies.species%></h1>
 
+<h2><%=singleFishSpecies.weight%></h2>
+
+<h2>List of all locations that you can find this species</h2>
+
+<ul>
+	<% fishLocations.forEach((place) => { %> 
+
+		<li><%=place.location %></li>
+
+	<%})%>
+</ul>
 
 
 

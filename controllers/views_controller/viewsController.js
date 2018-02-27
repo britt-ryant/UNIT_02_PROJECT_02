@@ -17,7 +17,7 @@ module.exports = {
 		});
 	},
 //**************** WILL REVISIT *******************
-	oneFish(req, res) {
+	viewSingleFish(req, res) {
 		res.render(`main/singleFish`)
 	},
 

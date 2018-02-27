@@ -2,10 +2,10 @@
 
 <h1>Input Region</h1>
 
-<a href="/gofish/1">Northeast Canyon</a><br>
-<a href="/gofish/2">Southern East Coast</a><br>
-<a href="/gofish/3">North Pacific</a><br>
-<a href="/gofish/4">South Pacific</a><br>
-<a href="/gofish/5">Gulf of Mexico</a><br>
+<ul>
+	<% location.forEach((loc) => { %>
+	<li><a href="/gofish/<%=loc.id%>"><%= loc.location %></a></li>
+	<% }) %> 
+</ul>
 
 <% include ../../views/partials/footer.ejs %>
