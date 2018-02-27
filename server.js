@@ -9,6 +9,7 @@ const methodOverride = require('method-override');
 const path = require('path');
 const mainRouter = require(`./routes/main-routes.js`);
 const fishRouter = require(`./routes/fish-routes.js`);
+const userRouter = require(`./routes/user-routes.js`);
 const session = require(`express-session`);
 //confiure the port 
 const PORT = process.env.PORT || 3000;
@@ -41,10 +42,22 @@ app.use(express.static(`public`));
 app.set(`views`, path.join(__dirname, `views`));
 app.set(`view engine`, `ejs`);
 
+
+app.use(function(req, res, next) {
+	const err = req.session.error;
+	const msg = req.session.success;
+	delete req.session.error;
+	delete req.session.success;
+	res.locals.message = ' ';
+	if(err) res.locals.message = `<p class="msg error">${err}</p>`;
+	if(msg) res.locals.message = `<p class="msg success">${msg}</p>`;
+	next();
+})
+
 //**** Route to generate random fish information.  Will be set to generate a random fish for now and return the json object for developmental purposes, will modify later ****
 app.use(`/gofish`, mainRouter);
-
 app.use(`/fishlist`, fishRouter);
+app.use(`/user`, userRouter);
 
 //Landing page
 app.use(`/`, (req, res) => {

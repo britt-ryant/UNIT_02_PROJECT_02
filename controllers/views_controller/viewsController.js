@@ -22,10 +22,21 @@ module.exports = {
 	},
 
 //**************** WILL REVISIT *******************
+	makeUser(req, res) {
+		res.render(`users/createUser`, {
+			err: req.session.error
+		})
+	},
+
+	handleNewUser(req, res) {
+		res.redirect(`/`)
+	},
+
+
 	handleUpdate(req, res) {
 		console.log(req.params.id)
 		res.redirect(`/gofish/${req.params.id}`)
-	}
+	},
 
 
 }

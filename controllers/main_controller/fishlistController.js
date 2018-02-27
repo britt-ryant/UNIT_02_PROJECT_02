@@ -14,11 +14,9 @@ module.exports = {
 	},
 
 	fishSpecific(req, res, next) {
-	
 		fishInfoDB.singleFishFullInfo(req.params.species)
 		.then(result => {
 			res.locals.singleFishSpecies = result;
-			console.log(result)
 			next()
 		})
 		.catch(err => {
@@ -30,14 +28,10 @@ module.exports = {
 		fishInfoDB.getAllLocationsForOne(req.params.species)
 		.then(results => {
 			res.locals.fishLocations = results
-			console.log(results)
 			next()
 		})
 		.catch(err => {
 			next(err)
 		})
-	}
-
-
-
+	},
 };

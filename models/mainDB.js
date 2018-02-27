@@ -1,10 +1,7 @@
-//require pg-promise
+const db = require(`../config/connection`)
 
 
-const pgp = require(`pg-promise`)();
-const dbConfig = require(`../config/dbConfig`);
 
-const db = pgp(dbConfig);
 
 module.exports = {
 
@@ -34,14 +31,7 @@ module.exports = {
 			WHERE locations.id=$1
 			ORDER BY fish_library.species`, id)
 	},
-//**************** WILL REVISIT *******************
-	singleFishFullInfo(name) {
 
-		return db.one(`SELECT * 
-			FROM fish_library
-			WHERE species=$1`, name)
-	},
-//**************** WILL REVISIT *******************
 	makeNewFish(fish) {
 		return db.one(`INSERT INTO fish_library(species, weight, caught, info) VALUES ($[species], $[weight], $[caught], $[info]) RETURNING fish_lib_id`, fish)
 	},

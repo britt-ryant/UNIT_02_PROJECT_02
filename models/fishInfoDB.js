@@ -1,7 +1,4 @@
-const pgp = require(`pg-promise`)();
-const dbConfig = require(`../config/dbConfig`);
-
-const db = pgp(dbConfig);
+const db = require(`../config/connection`)
 
 module.exports = {
 
@@ -11,8 +8,6 @@ module.exports = {
 
 
 	singleFishFullInfo(fish) {
-		console.log(`IM IN`)
-
 		return db.one(`SELECT * 
 			FROM fish_library
 			WHERE species=$1`, fish)

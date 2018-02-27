@@ -10,6 +10,8 @@ DROP TABLE IF EXISTS fish_library;
 -- DROP TABLE IF EXISTS northeast_canyon;
 DROP TABLE IF EXISTS fish_location;
 DROP TABLE IF EXISTS locations;
+DROP TABLE IF EXISTS user_id;
+DROP TABLE IF EXISTS user_information;
 
 CREATE TABLE fish_library (
 	fish_lib_id SERIAL PRIMARY KEY,
@@ -44,3 +46,20 @@ CREATE TABLE locations (
 	location VARCHAR(255),
 	date_created TIMESTAMP NOT NULL DEFAULT NOW()
 );
+
+CREATE TABLE user_id (
+	u_id SERIAL PRIMARY KEY,
+	uname VARCHAR(255)
+);
+
+CREATE TABLE user_information (
+	id SERIAL PRIMARY KEY,
+	user_fish_id INTEGER,
+	user_fish_weight INTEGER,
+	user_fish_loc_id INTEGER,
+	user_fish_info VARCHAR(255)
+);
+
+
+
+
