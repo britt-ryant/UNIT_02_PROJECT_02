@@ -10,7 +10,7 @@ userRouter.route(`/`)
 	.post(userController.checkUser, userController.createUser, views.handleNewUser);
 
 userRouter.route(`/mypage`)
-	.get(userController.getUserFish, views.usersPage)
+	.get(userController.getUserFish, views.usersPage, views.myPageError)
 
 userRouter.route(`/mypage/:id`)
 	.get(mainController.getListOfLocations, userController.userEditInfo, views.editFish)
@@ -19,7 +19,7 @@ userRouter.route(`/mypage/:id`)
 
 userRouter.route(`/myfish/:species`)
 	.get(mainController.getListOfLocations, fishListController.fishSpecific, views.submitFish)
-	.post(userController.isUser, userController.createUserFish, userController.checkLoc, userController.addLocationToFish, views.handleSubmitFish)
+	.post(userController.isUser, userController.isNumber, userController.createUserFish, userController.checkLoc,userController.addLocationToFish, views.handleSubmitFish)
 
 
 

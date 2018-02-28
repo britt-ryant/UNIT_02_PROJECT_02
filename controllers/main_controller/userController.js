@@ -16,6 +16,7 @@ module.exports = {
 		})
 	},
 
+
 	createUser(req, res, next) {
 		userDB.createNewUser(req.session.user)
 		.then(result => {
@@ -32,6 +33,16 @@ module.exports = {
 			next();
 		} else {
 			res.redirect(`/user`)
+		}
+	},
+	isNumber(req, res, next) {
+		console.log(`IN is number?`, req.body);
+		if(parseInt(req.body.weight) === NaN) {
+			res.session.error = "Please use a number this unit is in lbs";
+			res.redirect(`back`)
+		} else {
+			res.session.error = " ";
+			next();
 		}
 	},
 

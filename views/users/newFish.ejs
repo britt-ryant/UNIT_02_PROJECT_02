@@ -1,5 +1,8 @@
 <h1> Add a new <%=data%> to your list! </h1>
 <h2>New fish to list</h2>
+
+<%-message%>
+
 <form action="/user/myfish/<%=data%>" method="post">
 	<input name="species" type="hidden" value="<%=fish_id%>"/>
   <input name="weight" type="text" placeholder="Weight"/>

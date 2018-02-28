@@ -1,6 +1,11 @@
 //this is the main views controller for my app
 
 module.exports = {
+
+	myPageError(err, req, res, next) {
+		console.log(`------> IM HERE`,req.session.user)
+		res.sendStatus(404)
+	},
 	index(req, res) {
 		res.render(`main/index`);
 	},
@@ -57,7 +62,8 @@ module.exports = {
 
 	handleSubmitFish(req, res) {
 		res.redirect(`/user/mypage`)
-	}
+	}, 
+
 
 
 }
