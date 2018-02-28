@@ -1,24 +1,30 @@
+<% include ../../views/partials/boilerplate.ejs %>
 <h1>List of all fish caught by <%=userData[0].uname%></h1>
 
 <ul>
 	<% userData.forEach((fish) => { %>
-
-	<li>
-	<p>Species</p><br>
-	<%= fish.species %><br>
-	<p>weight</p><br>
-	<%= fish.user_fish_weight %><br>
-	<p>caught in</p><br>
-	<%= fish.location %><br>
-	<p>relevant information about this fish</p><br>
-	<%= fish.user_fish_info%><br>
-	<form action="/user/mypage/<%=fish.id%>" method="get">
-	<input type="submit" value="Edit this catch" />
-	</form>
-	<form action="/user/mypage/<%=fish.id%>?_method=Delete" method="Post">
-	<input type="submit" value="Delete this catch" />
-	</form>
-	</li>
-
+		<div class="userPageDiv">
+			<div class="space">
+				<h2>Species: <%= fish.species %></h2>
+			</div>
+			<div class="space">
+				<h3>weight: <%= fish.user_fish_weight %></h3>	
+			</div>
+			<p>Caught in the <%= fish.location %></p>
+			<div class="space">
+				<h4>Relevant information about this fish:</h4>
+				<p><%= fish.user_fish_info%></p>
+			</div>
+			<form action="/user/mypage/<%=fish.id%>" method="get">
+				<input type="submit" value="Edit this catch" />
+			</form>
+				<form action="/user/mypage/<%=fish.id%>?_method=Delete" method="Post">
+				<input type="submit" value="Delete this catch" />
+			</form>
+		</div>
 	<% }) %> 
 </ul>
+
+<a href="/" class="homebutton">Homepage</a>
+
+<% include ../../views/partials/footer.ejs %>

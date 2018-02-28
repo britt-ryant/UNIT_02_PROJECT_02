@@ -4,13 +4,19 @@
 
 <ul>
 	<% allFish.forEach((fish) => { %>
-
-	<li>
-	<a href="/fishlist/<%=fish.species%>"><%= fish.species %></a><br>
-	<a href="/user/myfish/<%=fish.species%>">Add to my fish List</a>
-	</li>
-
+		<li class="fullList">
+		<h2 class="speciesName">
+			<a class="aTag" href="/fishlist/<%=fish.species%>"><%= fish.species %></a>
+		</h2><br>
+		<h3 class="addButton">
+			<a class="aTag" href="/user/myfish/<%=fish.species%>">Add to my fish List</a>
+			</h3>
+		</li>
 	<% }) %> 
 </ul>
 
-<% include ../../views/partials/footer.ejs %>
+<a href="/" class="homebutton">Homepage</a>
+
+<div class="footer">
+	<% include ../../views/partials/footer.ejs %>
+</div>

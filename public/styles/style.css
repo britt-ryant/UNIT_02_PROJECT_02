@@ -1,0 +1,89 @@
+body {
+	font-size: 20px;
+}
+
+.footer {
+	margin: 20px 0;
+/*	border: 2px solid black;*/
+}
+
+.mainPageLinks {
+	text-decoration: none;
+/*	border: 2px solid black;*/
+	padding: 10px 0;
+}
+
+.aTag{
+	text-decoration: none;
+}
+
+.fullList {
+	margin: 0 auto;
+	list-style: none;
+	text-decoration: none;
+}
+
+.fullListLoc {
+	padding: none;
+/*	border: 2px solid black;*/
+	line-height: 10px;
+	margin: 0 auto;
+	list-style: none;
+	text-decoration: none;
+}
+
+.additInfo {
+	/*border: 2px solid black;*/
+	font-size: 15px;
+	position: relative;
+	top: -20px;
+}
+
+.speciesName{
+/*	border: 2px solid black;*/
+	margin: 0 auto;
+
+}
+.newFishForm{
+/*	border: 2px solid black;*/
+}
+
+.listedFish {
+/*	border: 2px solid black;*/
+
+}
+
+.addButton {
+	text-decoration: none;
+	text-align: left;
+	font-size: 10px;
+	border: 2px solid black;
+	margin-bottom: 20px;
+	max-width: 100px;
+	position: relative;
+	top: -30px;
+}
+
+.homebutton {
+	border: 2px solid black;
+	text-decoration: none;
+}
+.inputBox {
+	font-size: 15px;
+}
+.buttonAdd {
+	font-size: 20px;
+	/*background-color: blue;*/
+}
+.regionList {
+	list-style: none;
+	margin: 10px auto;
+	text-decoration: none;
+}
+.regionLink {
+	text-decoration: none;
+}
+.userPageLI {
+	border: 2px solid black;
+	list-style: none;
+}

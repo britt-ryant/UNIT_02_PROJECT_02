@@ -53,6 +53,22 @@ module.exports = {
 		})
 	},
 
+	checkLoc(req, res, next) {
+		let locAdd = {
+			fish_id: parseInt(req.body.species),
+			location_id: parseInt(req.body.location)
+		}
+		console.log(locAdd)
+		userDB.checkIfLoc(locAdd)
+		.then(result => {
+			console.log(result)
+			res.redirect(`/user/mypage`)
+		})
+		.catch(() => {
+			next()
+		})
+	},
+
 	addLocationToFish(req, res, next) {
 		let locAdd = {
 			fish_id: req.body.species,

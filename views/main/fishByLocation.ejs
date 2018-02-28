@@ -4,19 +4,32 @@
 
 <ul>
 	<% fish.forEach(fishOne => { %>
-		<a href="/fishlist/<%=fishOne.species%>"><li><h2><%=fishOne.species%></h2><br><p><%=fishOne.weight%></p></li></a><br>
-		<a href="/user/myfish/<%=fishOne.species%>">Add to my fish List</a>
+		<div class="listedFish">
+			<a class="aTag" href="/fishlist/<%=fishOne.species%>">
+				<li class="fullListLoc">
+					<h2><%=fishOne.species%></h2><br>
+				</li>
+				<div class="additInfo">	
+					<h3>Max Weight:</h3>
+					<p><%=fishOne.weight%>  lbs</p>
+				</div>
+			</a><br>
+			<a class="addButton" href="/user/myfish/<%=fishOne.species%>">Add to my fish List</a>
+		</div>
 	<%})%>
 </ul>
 
 <a href="/" class="homebutton">Homepage</a>
 
-<h2>New fish to list</h2>
-<form action="/gofish/<%=fish[0].id%>" method="post">
-  <input name="species" type="text" placeholder="Species"/>
-  <input name="weight" type="text" placeholder="Weight"/>
-  <input type="submit" value="Add it!" />
-</form>
+<div class="newFishForm">
+	<h2>New fish to list</h2>
+
+	<form action="/gofish/<%=fish[0].id%>" method="post">
+	  <input class="inputBox" name="species" type="text" placeholder="Species"/><br>
+	  <input class="inputBox" name="weight" type="text" placeholder="Weight"/><br>
+	  <input class="buttonAdd" type="submit" value="Add it!" />
+	</form>
+</div>
 
 
 

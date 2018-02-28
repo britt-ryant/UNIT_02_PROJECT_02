@@ -1,11 +1,17 @@
 <% include ../../views/partials/boilerplate.ejs %>
 
-<h1>Input Region</h1>
+<h1>Select Region</h1>
 
 <ul>
 	<% location.forEach((loc) => { %>
-	<li><a href="/gofish/<%=loc.id%>"><%= loc.location %></a></li>
+		<li class="regionList">
+			<a class="regionLink" href="/gofish/<%=loc.id%>"><%= loc.location %></a>
+		</li>
 	<% }) %> 
 </ul>
 
+<a href="/" class="homebutton">Homepage</a>
+
+<div class="footer">
 <% include ../../views/partials/footer.ejs %>
+</div>

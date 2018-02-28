@@ -14,6 +14,11 @@ module.exports = {
 		return db.one(`INSERT INTO user_information(user_id, user_fish_id, user_fish_weight, user_fish_loc_id, user_fish_info) VALUES ($[user_id], $[user_fish_id], $[user_fish_weight], $[user_fish_loc_id], $[user_fish_info]) RETURNING id`, newEntry)
 	},
 
+	checkIfLoc(data) {
+		console.log(`----->`, data)
+		return db.one(`SELECT * FROM fish_location WHERE fish_id=$[fish_id] AND location_id=$[location_id]`, data)
+	},
+
 	addLoc(data) {
 		return db.one(`INSERT INTO fish_location(fish_id, location_id)VALUES ($[fish_id], $[location_id])RETURNING *`, data)
 	},
