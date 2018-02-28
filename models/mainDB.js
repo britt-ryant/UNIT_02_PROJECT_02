@@ -31,7 +31,7 @@ module.exports = {
 	},
 
 	makeNewFish(fish) {
-		return db.one(`INSERT INTO fish_library(species, weight, caught, info) VALUES ($[species], $[weight], $[caught], $[info]) RETURNING fish_lib_id`, fish)
+		return db.one(`INSERT INTO fish_library(species, weight) VALUES ($[species], $[weight]) RETURNING fish_lib_id`, fish)
 	},
 
 

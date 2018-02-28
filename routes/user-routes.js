@@ -19,7 +19,7 @@ userRouter.route(`/mypage/:id`)
 
 userRouter.route(`/myfish/:species`)
 	.get(mainController.getListOfLocations, fishListController.fishSpecific, views.submitFish)
-	.post(userController.isUser, userController.createUserFish, views.handleSubmitFish)
+	.post(userController.isUser, userController.createUserFish, userController.addLocationToFish, views.handleSubmitFish)
 
 
 

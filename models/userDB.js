@@ -14,6 +14,10 @@ module.exports = {
 		return db.one(`INSERT INTO user_information(user_id, user_fish_id, user_fish_weight, user_fish_loc_id, user_fish_info) VALUES ($[user_id], $[user_fish_id], $[user_fish_weight], $[user_fish_loc_id], $[user_fish_info]) RETURNING id`, newEntry)
 	},
 
+	addLoc(data) {
+		return db.one(`INSERT INTO fish_location(fish_id, location_id)VALUES ($[fish_id], $[location_id])RETURNING *`, data)
+	},
+
 	getAllUserData(data) {
 		// return db.any(`SELECT * FROM user_information WHERE user_id=$1`, data)
 		return db.any(`SELECT user_information.id, user_id.uname, locations.location, fish_library.species, user_information.user_fish_weight, user_information.user_fish_info 

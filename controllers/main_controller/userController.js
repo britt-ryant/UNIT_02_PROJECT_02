@@ -53,6 +53,21 @@ module.exports = {
 		})
 	},
 
+	addLocationToFish(req, res, next) {
+		let locAdd = {
+			fish_id: req.body.species,
+			location_id: req.body.location
+		}
+		userDB.addLoc(locAdd)
+		.then(result => {
+			res.locals.newLoc = result;
+			next()
+		})
+		.catch(err => {
+			next(err)
+		})
+	},
+
 	getUserFish(req, res, next) {
 		userDB.getAllUserData(req.session.user.u_id)
 		.then(results => {
