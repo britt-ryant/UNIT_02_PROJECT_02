@@ -5,7 +5,7 @@ module.exports = {
 	checkUser(req, res, next) {
 		userDB.doesUserExist(req.body.uname)
 		.then(result => {
-			req.session.error = "Please Choose another Username";
+			req.session.error = `Please choose another username ${req.body.uname} already exists!`;
 			res.redirect(`back`);
 
 		})
@@ -37,11 +37,12 @@ module.exports = {
 	},
 	isNumber(req, res, next) {
 		console.log(`IN is number?`, req.body);
-		if(parseInt(req.body.weight) === NaN) {
-			res.session.error = "Please use a number this unit is in lbs";
+		console.log(parseInt(req.body.weight))
+		if(isNaN(parseInt(req.body.weight))) {
+			req.session.error = `"${req.body.weight}" is not a number, please enter weight in lbs`;
 			res.redirect(`back`)
 		} else {
-			res.session.error = " ";
+			req.session.error = " ";
 			next();
 		}
 	},
@@ -132,6 +133,17 @@ module.exports = {
 		})
 		.catch(err => {
 			next(err)
+		})
+	},
+	
+	isListFull(req, res, next) {
+		console.log(`here ------>`, req.params.id)
+		userDB.doesListExist(req.params.id)
+		.then(()=> next())
+		.catch(err => {
+			res.render(`users/userPageEmpty`, {
+				data: req.session.user.uname
+			})
 		})
 	},
 

@@ -51,10 +51,16 @@ module.exports = {
 			RETURNING *`, data)
 	},
 
+	doesListExist(id){
+		console.log(`here * 2 ----> `, id)
+		return db.one(`SELECT * FROM user_information 
+			WHERE id = $1`, id);
+	},
+
 	remove(id) {
 		console.log(id);
 		return db.none(`DELETE FROM user_information 
-			WHERE id = $1`, id)
+			WHERE id = $1`, id);
 	}
 
 
