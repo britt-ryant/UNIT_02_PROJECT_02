@@ -45,7 +45,6 @@ module.exports = {
 			user_fish_loc_id: parseInt(req.body.location),
 			user_fish_info: req.body.info
 		};
-		console.log(newFish);
 		userDB.createUserFish(newFish)
 		.then(result => {
 			res.locals.newUserFish = result;
@@ -60,6 +59,7 @@ module.exports = {
 		userDB.getAllUserData(req.session.user.u_id)
 		.then(results => {
 			res.locals.userData = results;
+			console.log(results)
 			next()
 		})
 		.catch(err => {

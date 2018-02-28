@@ -1,12 +1,16 @@
-<h1>Made The fish</h1>
+<h1>List of all fish caught by <%=userData[0].uname%></h1>
 
 <ul>
 	<% userData.forEach((fish) => { %>
 
 	<li>
-	<%= fish.user_fish_id %><br>
+	<p>Species</p><br>
+	<%= fish.species %><br>
+	<p>weight</p><br>
 	<%= fish.user_fish_weight %><br>
-	<%= fish.user_fish_loc_id %><br>
+	<p>caught in</p><br>
+	<%= fish.location %><br>
+	<p>relevant information about this fish</p><br>
 	<%= fish.user_fish_info%>
 	</li>
 
