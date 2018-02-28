@@ -6,7 +6,6 @@ const db = require(`../config/connection`)
 module.exports = {
 
 	getLocations(){
-		console.log(`making it here`)
 		return db.any(`SELECT * FROM locations;`)
 	},
 
@@ -21,7 +20,6 @@ module.exports = {
 //************************** not used at the moment ******************************************
 
 	showByLocation(id) {
-		console.log(id)
 		return db.any(`SELECT fish_library.species, fish_library.fish_lib_id, fish_library.weight, locations.location, locations.id 
 			FROM fish_library 
 			JOIN fish_location 

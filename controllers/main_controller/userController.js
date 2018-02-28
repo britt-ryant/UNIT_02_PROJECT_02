@@ -80,22 +80,24 @@ module.exports = {
 	},
 
 	updateFish(req, res, next) {
-		userDB.updateInfo(res.locals.editFish)
-		.then(restult => {
+		console.log(`SHAZAM ----->`, req.params)
+		let insertIntoUpdate = {
+			id: parseInt(req.params.id),
+			user_fish_weight: parseInt(req.body.weight),
+			user_fish_loc_id: parseInt(req.body.location),
+			user_fish_info: req.body.info
+		};
+		console.log(insertIntoUpdate)
+		userDB.updateInfo(insertIntoUpdate)
+		.then(result => {
 			res.locals.updatedFish = result;
 			next()
 		})
 		.catch(err => {
 			next(err)
 		})
+	},
+	test(req, res, next) {
+		console.log(`being passed`)
 	}
-
-// 	addToUserFishData(req, res, next) {
-// 		console.log(req.params.species)
-// 		userDB.createNewUserEntry(req.params.species)
-// 		.then(result => {
-// 			res.locals.newUserFish = 			
-// 		})
-// 		.catch()
-// 	}
 };
