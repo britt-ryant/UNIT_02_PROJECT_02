@@ -1,19 +1,20 @@
 <% include ../../views/partials/boilerplate.ejs %>
 
-</h1><%=singleFishSpecies.species%></h1>
+<h1><%=singleFishSpecies.species%></h1>
 
-<h2><%=singleFishSpecies.weight%></h2>
+<h2>Max Weight: <%=singleFishSpecies.weight%> lbs</h2>
 
-<h2>List of all locations that you can find this species</h2>
+<h3>List of all locations that you can find this species</h3>
 
 <ul>
 	<% fishLocations.forEach((place) => { %> 
 
-		<li><%=place.location %></li>
+		<li class="fullList"><%=place.location %></li>
 
 	<%})%>
 </ul>
 
 
+<a href="/" class="homebutton">Homepage</a>
 
 <% include ../../views/partials/footer.ejs %>
