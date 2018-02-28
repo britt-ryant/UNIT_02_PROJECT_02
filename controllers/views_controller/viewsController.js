@@ -31,7 +31,7 @@ module.exports = {
 	submitFish(req, res) {
 		let location = res.locals.location;
 		let fishId = res.locals.singleFishSpecies.fish_lib_id;
-		res.render(`users/userFishList`, {
+		res.render(`users/newFish`, {
 			data: req.params.species,
 			fish_id: fishId
 		})		
@@ -39,6 +39,12 @@ module.exports = {
 
 	usersPage(req, res) {
 		res.render(`users/userPage`)
+	},
+
+	editFish(req, res) {
+		res.render(`users/updateFish`, {
+			data: res.locals.editFish
+		})
 	},
 
 	handleNewUser(req, res) {

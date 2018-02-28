@@ -59,7 +59,30 @@ module.exports = {
 		userDB.getAllUserData(req.session.user.u_id)
 		.then(results => {
 			res.locals.userData = results;
-			console.log(results)
+			next()
+		})
+		.catch(err => {
+			next(err)
+		})
+	},
+
+	userEditInfo(req, res, next) {
+		// res.render(`users/testPage`)
+		userDB.getEditInfo(req.params.id)
+		.then(result => {
+			res.locals.editFish = result;
+			next();
+		})
+		.catch(err => {
+			next(err)
+		})
+
+	},
+
+	updateFish(req, res, next) {
+		userDB.updateInfo(res.locals.editFish)
+		.then(restult => {
+			res.locals.updatedFish = result;
 			next()
 		})
 		.catch(err => {

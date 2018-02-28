@@ -16,9 +16,8 @@ module.exports = {
 	},
 
 	getAllUserData(data) {
-		console.log(data)
 		// return db.any(`SELECT * FROM user_information WHERE user_id=$1`, data)
-		return db.any(`SELECT user_id.uname, locations.location, fish_library.species, user_information.user_fish_weight, user_information.user_fish_info 
+		return db.any(`SELECT user_information.id, user_id.uname, locations.location, fish_library.species, user_information.user_fish_weight, user_information.user_fish_info 
 			FROM user_information
 			JOIN user_id
 			ON user_id.u_id = user_information.user_id
@@ -28,5 +27,11 @@ module.exports = {
 			ON fish_library.fish_lib_id = user_information.user_fish_id
 			WHERE user_information.user_id = $1
 			ORDER BY fish_library.species`, data)
+	},
+
+	getEditInfo(id) {
+		return db.one(`SELECT * FROM user_information WHERE id=$1`, id)
 	}
+
+
 };

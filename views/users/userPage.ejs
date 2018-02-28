@@ -11,7 +11,10 @@
 	<p>caught in</p><br>
 	<%= fish.location %><br>
 	<p>relevant information about this fish</p><br>
-	<%= fish.user_fish_info%>
+	<%= fish.user_fish_info%><br>
+	<form action="/user/mypage/<%=fish.id%>" method="get">
+	<input type="submit" value="Edit this catch" />
+	</form>
 	</li>
 
 	<% }) %> 
