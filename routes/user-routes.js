@@ -15,6 +15,7 @@ userRouter.route(`/mypage`)
 userRouter.route(`/mypage/:id`)
 	.get(mainController.getListOfLocations, userController.userEditInfo, views.editFish)
 	.put(userController.updateFish, views.handleSubmitFish)
+	.delete(userController.destroy, views.handleSubmitFish)
 
 userRouter.route(`/myfish/:species`)
 	.get(mainController.getListOfLocations, fishListController.fishSpecific, views.submitFish)

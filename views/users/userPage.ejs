@@ -15,6 +15,9 @@
 	<form action="/user/mypage/<%=fish.id%>" method="get">
 	<input type="submit" value="Edit this catch" />
 	</form>
+	<form action="/user/mypage/<%=fish.id%>?_method=Delete" method="Post">
+	<input type="submit" value="Delete this catch" />
+	</form>
 	</li>
 
 	<% }) %> 

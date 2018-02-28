@@ -33,7 +33,6 @@ module.exports = {
 	},
 
 	updateInfo(data) {
-		console.log(data)
 		return db.one(`UPDATE user_information 
 			SET 
 			user_fish_weight = $[user_fish_weight],
@@ -41,6 +40,12 @@ module.exports = {
 			user_fish_info = $[user_fish_info]
 			WHERE id = $[id]
 			RETURNING *`, data)
+	},
+
+	remove(id) {
+		console.log(id);
+		return db.none(`DELETE FROM user_information 
+			WHERE id = $1`, id)
 	}
 
 

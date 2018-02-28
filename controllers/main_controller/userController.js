@@ -28,8 +28,6 @@ module.exports = {
 	},
 
 	isUser(req, res, next) {
-		console.log(`made it here`)
-		console.log(req.session.user)
 		if(req.session.user !== undefined) {
 			next();
 		} else {
@@ -67,7 +65,6 @@ module.exports = {
 	},
 
 	userEditInfo(req, res, next) {
-		// res.render(`users/testPage`)
 		userDB.getEditInfo(req.params.id)
 		.then(result => {
 			res.locals.editFish = result;
@@ -80,14 +77,12 @@ module.exports = {
 	},
 
 	updateFish(req, res, next) {
-		console.log(`SHAZAM ----->`, req.params)
 		let insertIntoUpdate = {
 			id: parseInt(req.params.id),
 			user_fish_weight: parseInt(req.body.weight),
 			user_fish_loc_id: parseInt(req.body.location),
 			user_fish_info: req.body.info
 		};
-		console.log(insertIntoUpdate)
 		userDB.updateInfo(insertIntoUpdate)
 		.then(result => {
 			res.locals.updatedFish = result;
@@ -97,7 +92,14 @@ module.exports = {
 			next(err)
 		})
 	},
+
+	destroy(req, res, next) {
+		userDB.remove(parseInt(req.params.id))
+		.then(() => next())
+		.catch(err => next(err))
+	},
 	test(req, res, next) {
 		console.log(`being passed`)
+		res.render(`users/testPage`)
 	}
 };
