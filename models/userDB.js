@@ -9,6 +9,29 @@ module.exports = {
 		return db.one(`INSERT INTO user_id(uname) VALUES ($1) RETURNING *`, uname);
 	},
 
+	checkInstByLoc(inst) {
+		return db.one(`SELECT * FROM rec_location 
+			WHERE user_id=$[user_id] 
+			AND user_fish_id=$[user_fish_id]
+			AND user_fish_loc_id=$[user_fish_loc_id]`, inst)
+	},
+
+	createInstByLoc(inst) {
+		console.log(`this one ----> 1`)
+		return db.one(`INSERT INTO rec_location(user_id, user_fish_id, user_fish_loc_id, user_fish_location_count) 
+			VALUES($[user_id], $[user_fish_id], $[user_fish_loc_id], $[user_fish_location_count]) RETURNING *`, inst)
+	},
+	updateInstByLoc(inst) {
+		console.log(`this one ----> 2`)
+		return db.one(`UPDATE rec_location
+			SET
+			user_fish_location_count=$[user_fish_location_count]
+			WHERE user_id = $[user_id]
+			AND user_fish_id = $[user_fish_id]
+			AND user_fish_loc_id = $[user_fish_loc_id]
+			RETURNING *`, inst)
+	},
+
 	createUserFish(newEntry){
 		return db.one(`INSERT INTO user_information(user_id, user_fish_id, user_fish_weight, user_fish_loc_id, user_fish_info) VALUES ($[user_id], $[user_fish_id], $[user_fish_weight], $[user_fish_loc_id], $[user_fish_info]) RETURNING id`, newEntry)
 	},

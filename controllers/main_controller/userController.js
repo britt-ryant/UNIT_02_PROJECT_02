@@ -32,6 +32,67 @@ module.exports = {
 			next(err)
 		})
 	},
+	//Check the rec_location table to see if the instance exists
+	checkUserFishInst(req, res, next) {
+		let info = {
+			user_id: parseInt(req.session.user.u_id),
+			user_fish_id: parseInt(req.body.species),
+			user_fish_loc_id: parseInt(req.body.location),
+			user_fish_location_count: 1
+		};
+		console.log(`--> INFORMATION BEING INSERTED TO CHECK`, info)
+		userDB.checkInstByLoc(info)
+		.then(result => {
+			res.locals.inst = true;
+			res.locals.recInfo = result;
+			console.log(res.locals.inst)
+			next()
+		})
+		.catch(err => {
+			res.locals.inst = false;
+			res.locals.recInfo = info
+			console.log(res.locals.inst)
+			next()
+		})
+	},
+
+	createUserFishInst(req, res, next) {
+		console.log(res.locals.inst, res.locals.recInfo)
+		if(res.locals.inst === false){
+			res.locals.recInfo.user_fish_location_count = 1;
+			userDB.createInstByLoc(res.locals.recInfo)
+			.then(result => {
+				res.locals.inst = true;
+				console.log(`created instance`);
+				next();
+			})
+			.catch(err => {
+				next(err);
+			})
+		} else {
+			res.locals.inst = false
+			console.log(`unhandeled whatever`)
+			next();
+		}
+
+	},
+
+	updateUserFishInst(req, res, next){
+		if(res.locals.inst === false) {
+			res.locals.recInfo.user_fish_location_count += 1;
+			console.log(`before the problem`, res.locals.recInfo.user_fish_location_count)
+			userDB.updateInstByLoc(res.locals.recInfo.user)
+			.then(result => {
+				console.log(`final step go to next`)
+				next()
+			})
+			.catch(err => next(err))
+		}else {
+			next();
+		}
+
+	},
+
 	//Create a new fish that is associated with that user and storing unique information the pertains to that user/fish
 	createUserFish(req, res, next) {
 		let newFish = {

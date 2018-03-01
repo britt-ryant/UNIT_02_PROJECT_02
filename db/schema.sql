@@ -12,6 +12,7 @@ DROP TABLE IF EXISTS fish_location;
 DROP TABLE IF EXISTS locations;
 DROP TABLE IF EXISTS user_id;
 DROP TABLE IF EXISTS user_information;
+DROP TABLE IF EXISTS rec_location;
 
 CREATE TABLE fish_library (
 	fish_lib_id SERIAL PRIMARY KEY,
@@ -59,6 +60,14 @@ CREATE TABLE user_information (
 	user_fish_weight INTEGER,
 	user_fish_loc_id INTEGER,
 	user_fish_info VARCHAR(255)
+);
+
+CREATE TABLE rec_location (
+	id SERIAL PRIMARY KEY,
+	user_id INTEGER,
+	user_fish_id INTEGER,
+	user_fish_loc_id INTEGER,
+	user_fish_location_count INTEGER
 );
 
 
