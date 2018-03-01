@@ -64,6 +64,4 @@ module.exports = {
 		res.redirect(`/user/mypage`)
 	}, 
 
-
-
 }
