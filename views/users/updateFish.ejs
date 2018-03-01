@@ -1,5 +1,7 @@
 <h1> Update this fish in your list! </h1>
 <h2>Update fish in list</h2>
+
+<%-message%>
 <form action="/user/mypage/<%=data.id%>?_method=PUT" method="post">
 	<input name="species" type="hidden" value="<%=data.user_fish_id%>"/>
   	<input name="weight" type="text" placeholder="Weight"/>

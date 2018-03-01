@@ -16,6 +16,10 @@ module.exports = {
 		})
 	},
 
+	checkLoggedIn(req, res, next) {
+
+		req.session.user === undefined ? res.render(`users/createUser`) : next();
+	},
 
 	createUser(req, res, next) {
 		userDB.createNewUser(req.session.user)
@@ -137,10 +141,14 @@ module.exports = {
 	},
 	
 	isListFull(req, res, next) {
-		console.log(`here ------>`, req.params.id)
-		userDB.doesListExist(req.params.id)
-		.then(()=> next())
+		console.log(`here ------>`, req.session.user)
+		userDB.doesListExist(req.session.user.u_id)
+		.then(result => {
+			console.log(`im in it to win it!`)
+			next()
+		})
 		.catch(err => {
+			console.log(`WHY CANT I MAKE IT HERE!?!?!?!`)
 			res.render(`users/userPageEmpty`, {
 				data: req.session.user.uname
 			})
@@ -155,5 +163,6 @@ module.exports = {
 	test(req, res, next) {
 		console.log(`being passed`)
 		res.render(`users/testPage`)
+		console.log(req.session.user)
 	}
 };

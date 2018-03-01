@@ -53,8 +53,7 @@ module.exports = {
 
 	doesListExist(id){
 		console.log(`here * 2 ----> `, id)
-		return db.one(`SELECT * FROM user_information 
-			WHERE id = $1`, id);
+		return db.many(`SELECT * FROM user_information WHERE user_id = $1`, id);
 	},
 
 	remove(id) {
