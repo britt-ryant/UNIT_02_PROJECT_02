@@ -60,8 +60,17 @@ INSERT INTO fish_library (species, weight, caught, info) VALUES
 	'N',
 	''
 );
-INSERT INTO locations (location) VALUES 
-('North East Canyon'),('Southern East Coast'),('North Pacific'),('South Pacific'),('Gulf Of Mexico');
+INSERT INTO locations (location, lat_deg, lat_dec, lon_deg, lon_dec) VALUES ( 
+'North East Canyon', 39, 419390, 72, 244713
+),(
+'Southern East Coast', 29, 443104, 80, 022363
+),(
+'North Pacific', 44, 853098, 124, 996772
+),(
+'South Pacific', 25, 674685, 118, 672257
+),(
+'Gulf Of Mexico', 26, 661870, 88, 764641
+);
 
 INSERT INTO fish_location (fish_id, location_id) VALUES (
 1,1

@@ -1,5 +1,6 @@
 body {
 	font-size: 20px;
+	/*background-color: blue;*/
 }
 h1 {
 	font-size: 50px;
@@ -90,6 +91,8 @@ h1 {
 }
 .regionLink {
 	text-decoration: none;
+	border: 2px solid black;
+
 }
 .userPageLI {
 	border: 2px solid black;

@@ -44,6 +44,10 @@ CREATE TABLE fish_location (
 CREATE TABLE locations (
 	id SERIAL PRIMARY KEY,
 	location VARCHAR(255),
+	lat_deg INTEGER,
+	lat_dec INTEGER,
+	lon_deg INTEGER,
+	lon_dec INTEGER,
 	date_created TIMESTAMP NOT NULL DEFAULT NOW()
 );
 

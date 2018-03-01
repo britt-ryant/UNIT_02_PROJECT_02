@@ -10,6 +10,7 @@ const path = require('path');
 const mainRouter = require(`./routes/main-routes.js`);
 const fishRouter = require(`./routes/fish-routes.js`);
 const userRouter = require(`./routes/user-routes.js`);
+const weatherRouter = require(`./routes/weather-router.js`)
 const session = require(`express-session`);
 //confiure the port 
 const PORT = process.env.PORT || 3000;
@@ -58,6 +59,7 @@ app.use(function(req, res, next) {
 app.use(`/gofish`, mainRouter);
 app.use(`/fishlist`, fishRouter);
 app.use(`/user`, userRouter);
+app.use(`/weather`, weatherRouter);
 
 //Landing page
 app.get(`/`, (req, res) => {
