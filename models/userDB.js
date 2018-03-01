@@ -2,7 +2,6 @@ const db = require(`../config/connection.js`);
 
 module.exports = {
 	doesUserExist(uname){
-		// console.log(uname)
 		return db.one(`SELECT * FROM user_id WHERE uname=$1`, uname);
 	},
 
@@ -15,7 +14,6 @@ module.exports = {
 	},
 
 	checkIfLoc(data) {
-		console.log(`----->`, data)
 		return db.one(`SELECT * FROM fish_location WHERE fish_id=$[fish_id] AND location_id=$[location_id]`, data)
 	},
 
@@ -52,17 +50,15 @@ module.exports = {
 	},
 
 	doesListExist(id){
-		console.log(`here * 2 ----> `, id)
 		return db.many(`SELECT * FROM user_information WHERE user_id = $1`, id);
 	},
 
 	remove(id) {
-		console.log(id);
 		return db.none(`DELETE FROM user_information 
 			WHERE id = $1`, id);
 	},
 
-	
+
 
 
 };

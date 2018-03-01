@@ -6,6 +6,7 @@ module.exports = {
 		console.log(`------> IM HERE`,req.session.user)
 		res.sendStatus(404)
 	},
+
 	index(req, res) {
 		res.render(`main/index`);
 	},
@@ -21,12 +22,11 @@ module.exports = {
 			data: res.locals.fish
 		});
 	},
-//**************** WILL REVISIT *******************
+
 	viewSingleFish(req, res) {
 		res.render(`main/singleFish`)
 	},
 
-//**************** WILL REVISIT *******************
 	makeUser(req, res) {
 		res.render(`users/createUser`, {
 			err: req.session.error
@@ -39,7 +39,7 @@ module.exports = {
 		res.render(`users/newFish`, {
 			data: req.params.species,
 			fish_id: fishId
-		})		
+		});		
 	},
 
 	usersPage(req, res) {
@@ -49,7 +49,7 @@ module.exports = {
 	editFish(req, res) {
 		res.render(`users/updateFish`, {
 			data: res.locals.editFish
-		})
+		});
 	},
 
 	handleNewUser(req, res) {
