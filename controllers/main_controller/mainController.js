@@ -3,12 +3,19 @@ const mainDB = require(`../../models/mainDB.js`)
 
 module.exports = {
 
+//**************** ROUTER TESTING FUNCTION FOR CREATING NEW ROUTES ***************************
+	test(req, res, next) {
+		console.log(`being passed`)
+		res.render(`users/testPage`)
+		console.log(req.session.user)
+	},
+
+//**************** ROUTER TESTING FUNCTION FOR CREATING NEW ROUTES ***************************
+
 	getListOfLocations(req, res, next) {
 		mainDB.getLocations()
 			.then(results => {
 				res.locals.location = results;
-				// console.log(results)
-				// console.log(res.locals.location)
 				next()
 			})
 			.catch(err => {
@@ -16,30 +23,8 @@ module.exports = {
 			})
 	},
 
-//************ NOT SURE THAT THIS WILL BE RELEVENT ***********************
-
-	getOneFishRandom(req, res) {
-		//nine is hardcoded number of fish in the database, must be channged later!!!!!!
-		let randomFishId = Math.ceil(Math.random()*9)
-		mainDB.showOne(randomFishId)
-		.then(result => {
-			res.json({
-				message: `ok`,
-				data: result
-			})
-		})
-		.catch(err => {
-			res.status(500).json({
-				message: `500 : YOURE FUCKED`,
-				data: err
-			})
-		})
-	},
-
-//************ NOT SURE THAT THIS WILL BE RELEVENT ***********************
 	
 	locationSpecific(req, res, next) {
-		// console.log(req.params.id)
 		mainDB.showByLocation(req.params.id)
 		.then(results => {
 			res.locals.fish = results;
@@ -74,6 +59,16 @@ module.exports = {
 		.catch(err => {
 			next(err);
 		})
+	},
+
+		isNumber(req, res, next) {
+		if(isNaN(parseInt(req.body.weight))) {
+			req.session.error = `"${req.body.weight}" is not a number, please enter weight in lbs`;
+			res.redirect(`back`)
+		} else {
+			req.session.error = " ";
+			next();
+		}
 	},
 
 

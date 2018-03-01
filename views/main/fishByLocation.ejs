@@ -24,6 +24,8 @@
 <div class="newFishForm">
 	<h2>New fish to list</h2>
 
+	<%-message%>
+
 	<form action="/gofish/<%=fish[0].id%>" method="post">
 	  <input class="inputBox" name="species" type="text" placeholder="Species"/><br>
 	  <input class="inputBox" name="weight" type="text" placeholder="Weight"/><br>

@@ -60,17 +60,17 @@ app.use(`/fishlist`, fishRouter);
 app.use(`/user`, userRouter);
 
 //Landing page
-app.use(`/`, (req, res) => {
+app.get(`/`, (req, res) => {
 	res.render(`index`, {
 		documentTitle: `Fish app`,
 		mainContent: `This is my fishing app, ADD MORE TEXT HERE!!!`
 	})
-})
+});
 
 //catch all page to set status to a 404
-app.use(`*`, (req, res) => {
+app.use("*", (req, res) => {
 	res.status(404).send(`404 : NOT FOUND  💔`)
-})
+});
 
 
 //set a lisener event for the port

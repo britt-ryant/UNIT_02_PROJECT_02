@@ -17,7 +17,6 @@ module.exports = {
 	},
 
 	checkLoggedIn(req, res, next) {
-
 		req.session.user === undefined ? res.render(`users/createUser`) : next();
 	},
 
@@ -37,17 +36,6 @@ module.exports = {
 			next();
 		} else {
 			res.redirect(`/user`)
-		}
-	},
-	isNumber(req, res, next) {
-		console.log(`IN is number?`, req.body);
-		console.log(parseInt(req.body.weight))
-		if(isNaN(parseInt(req.body.weight))) {
-			req.session.error = `"${req.body.weight}" is not a number, please enter weight in lbs`;
-			res.redirect(`back`)
-		} else {
-			req.session.error = " ";
-			next();
 		}
 	},
 
@@ -73,11 +61,9 @@ module.exports = {
 		let locAdd = {
 			fish_id: parseInt(req.body.species),
 			location_id: parseInt(req.body.location)
-		}
-		console.log(locAdd)
+		};
 		userDB.checkIfLoc(locAdd)
 		.then(result => {
-			console.log(result)
 			res.redirect(`/user/mypage`)
 		})
 		.catch(() => {
@@ -89,7 +75,7 @@ module.exports = {
 		let locAdd = {
 			fish_id: req.body.species,
 			location_id: req.body.location
-		}
+		};
 		userDB.addLoc(locAdd)
 		.then(result => {
 			res.locals.newLoc = result;
@@ -141,14 +127,11 @@ module.exports = {
 	},
 	
 	isListFull(req, res, next) {
-		console.log(`here ------>`, req.session.user)
 		userDB.doesListExist(req.session.user.u_id)
 		.then(result => {
-			console.log(`im in it to win it!`)
 			next()
 		})
 		.catch(err => {
-			console.log(`WHY CANT I MAKE IT HERE!?!?!?!`)
 			res.render(`users/userPageEmpty`, {
 				data: req.session.user.uname
 			})
@@ -160,9 +143,5 @@ module.exports = {
 		.then(() => next())
 		.catch(err => next(err))
 	},
-	test(req, res, next) {
-		console.log(`being passed`)
-		res.render(`users/testPage`)
-		console.log(req.session.user)
-	}
+	
 };

@@ -10,7 +10,7 @@ mainRouter.route(`/`)
 	.get(mainController.getListOfLocations, views.index);
 mainRouter.route(`/:id`)
 	.get(mainController.locationSpecific, views.locationSpecific)
-	.post(mainController.createFish, mainController.createLocation, views.handleUpdate)
+	.post(mainController.isNumber, mainController.createFish, mainController.createLocation, views.handleUpdate)
 
 
 

@@ -60,7 +60,9 @@ module.exports = {
 		console.log(id);
 		return db.none(`DELETE FROM user_information 
 			WHERE id = $1`, id);
-	}
+	},
+
+	
 
 
 };
