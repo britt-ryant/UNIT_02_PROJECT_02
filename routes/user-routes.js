@@ -19,10 +19,7 @@ userRouter.route(`/mypage/:id`)
 
 userRouter.route(`/myfish/:species`)
 	.get(mainController.getListOfLocations, fishListController.fishSpecific, views.submitFish)
-	.post(userController.isUser, mainController.isNumber, userController.createUserFish, userController.checkLoc,userController.addLocationToFish, views.handleSubmitFish)
-
-
-
+	.post(userController.checkLoggedIn, mainController.isNumber, userController.createUserFish, userController.checkLoc,userController.addLocationToFish, views.handleSubmitFish)
 
 
 module.exports = userRouter;

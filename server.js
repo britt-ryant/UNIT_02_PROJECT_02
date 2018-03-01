@@ -68,8 +68,8 @@ app.get(`/`, (req, res) => {
 });
 
 //catch all page to set status to a 404
-app.use("*", (req, res) => {
-	res.status(404).send(`404 : NOT FOUND  💔`)
+app.use(`*`, (req, res) => {
+	res.status(404).send(`<h1 id="error">404 : NOT FOUND  💔</h1>`)
 });
 
 

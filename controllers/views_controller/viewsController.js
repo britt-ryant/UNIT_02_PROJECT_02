@@ -34,7 +34,6 @@ module.exports = {
 	},
 
 	submitFish(req, res) {
-		let location = res.locals.location;
 		let fishId = res.locals.singleFishSpecies.fish_lib_id;
 		res.render(`users/newFish`, {
 			data: req.params.species,
@@ -51,7 +50,7 @@ module.exports = {
 			data: res.locals.editFish
 		});
 	},
-
+	
 	handleNewUser(req, res) {
 		res.redirect(`/`)
 	},

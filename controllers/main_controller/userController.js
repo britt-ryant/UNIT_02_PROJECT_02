@@ -2,6 +2,8 @@ const userDB = require(`../../models/userDB.js`);
 const mainDB = require(`../../models/mainDB.js`)
 
 module.exports = {
+
+	//Check to see if the username exists in the database 	
 	checkUser(req, res, next) {
 		userDB.doesUserExist(req.body.uname)
 		.then(result => {
@@ -15,11 +17,11 @@ module.exports = {
 			next();
 		})
 	},
-
+	//Check to see if the user is logged in 
 	checkLoggedIn(req, res, next) {
-		req.session.user === undefined ? res.render(`users/createUser`) : next();
+		req.session.user === undefined ? res.redirect(`/user`) : next();
 	},
-
+	//Create a new user
 	createUser(req, res, next) {
 		userDB.createNewUser(req.session.user)
 		.then(result => {
@@ -30,15 +32,7 @@ module.exports = {
 			next(err)
 		})
 	},
-
-	isUser(req, res, next) {
-		if(req.session.user !== undefined) {
-			next();
-		} else {
-			res.redirect(`/user`)
-		}
-	},
-
+	//Create a new fish that is associated with that user and storing unique information the pertains to that user/fish
 	createUserFish(req, res, next) {
 		let newFish = {
 			user_id: req.session.user.u_id,
@@ -56,7 +50,7 @@ module.exports = {
 			next(err)
 		})
 	},
-
+	//Check the current created instance to see if the the location/fish combo already exists in the fish_location table 
 	checkLoc(req, res, next) {
 		let locAdd = {
 			fish_id: parseInt(req.body.species),
@@ -70,7 +64,7 @@ module.exports = {
 			next()
 		})
 	},
-
+	//If the location/fish instance does not exist in the fish_locaiton table, add that instance to the fish_location table
 	addLocationToFish(req, res, next) {
 		let locAdd = {
 			fish_id: req.body.species,
@@ -85,7 +79,7 @@ module.exports = {
 			next(err)
 		})
 	},
-
+	//Grab all of the saved fish for the current user and display them on the users fish page
 	getUserFish(req, res, next) {
 		userDB.getAllUserData(req.session.user.u_id)
 		.then(results => {
@@ -96,7 +90,7 @@ module.exports = {
 			next(err)
 		})
 	},
-
+	//Edit the information that is displayed on the user fish page for each fish
 	userEditInfo(req, res, next) {
 		userDB.getEditInfo(req.params.id)
 		.then(result => {
@@ -108,7 +102,7 @@ module.exports = {
 		})
 
 	},
-
+	//update the edited information
 	updateFish(req, res, next) {
 		let insertIntoUpdate = {
 			id: parseInt(req.params.id),
@@ -125,7 +119,7 @@ module.exports = {
 			next(err)
 		})
 	},
-	
+	//Check to see if there are any instances saved in the user_information table for that particular user, if not, show the page that displays the message that the table is empty and provide links to add fish
 	isListFull(req, res, next) {
 		userDB.doesListExist(req.session.user.u_id)
 		.then(result => {
@@ -137,11 +131,10 @@ module.exports = {
 			})
 		})
 	},
-
+	//delete the instance of the fish in the user_information table
 	destroy(req, res, next) {
 		userDB.remove(parseInt(req.params.id))
 		.then(() => next())
 		.catch(err => next(err))
-	},
-	
+	}
 };
