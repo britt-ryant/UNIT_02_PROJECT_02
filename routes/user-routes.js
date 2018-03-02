@@ -1,8 +1,8 @@
 const userRouter = require(`express`).Router();
-const userController = require(`../controllers/main_controller/userController.js`);
-const mainController = require(`../controllers/main_controller/mainController.js`);
-const fishListController = require(`../controllers/main_controller/fishListController.js`);
-const views = require(`../controllers/views_controller/viewsController.js`);
+const userController = require(`../controllers/mainController/userController.js`);
+const mainController = require(`../controllers/mainController/mainController.js`);
+const fishListController = require(`../controllers/mainController/fishlistController.js`);
+const views = require(`../controllers/viewsController/viewsController.js`);
 
 
 userRouter.route(`/`)

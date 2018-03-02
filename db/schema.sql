@@ -4,7 +4,7 @@
 
 
 
-\c fish_library_db;
+
 
 DROP TABLE IF EXISTS fish_library;
 -- DROP TABLE IF EXISTS northeast_canyon;

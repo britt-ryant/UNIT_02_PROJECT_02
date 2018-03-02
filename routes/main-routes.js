@@ -2,8 +2,8 @@
 //Require express router
 const mainRouter = require(`express`).Router();
 //Link the controller to the router
-const mainController = require(`../controllers/main_controller/mainController.js`);
-const views = require(`../controllers/views_controller/viewsController.js`)
+const mainController = require(`../controllers/mainController/mainController.js`);
+const views = require(`../controllers/viewsController/viewsController.js`)
 
 
 mainRouter.route(`/`)

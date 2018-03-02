@@ -107,7 +107,7 @@ module.exports = {
 		let insertIntoUpdate = {
 			id: parseInt(req.params.id),
 			user_fish_weight: parseInt(req.body.weight),
-			user_fish_loc_id: parseInt(req.body.location),
+			user_fish_loc_id: parseInt(req.body.locations),
 			user_fish_info: req.body.info
 		};
 		userDB.updateInfo(insertIntoUpdate)

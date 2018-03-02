@@ -1,6 +1,6 @@
 const fishRoutes = require(`express`).Router();
-const fishlistController = require(`../controllers/main_controller/fishlistController`);
-const views = require(`../controllers/views_controller/viewsController`);
+const fishlistController = require(`../controllers/mainController/fishlistController`);
+const views = require(`../controllers/viewsController/viewsController`);
 
 fishRoutes.route(`/`)
 	.get(fishlistController.index, views.fullListOfSpecies)
