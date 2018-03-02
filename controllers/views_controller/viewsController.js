@@ -55,7 +55,7 @@ module.exports = {
 	showWeather(req, res) {
 		res.render(`main/weather`,{
 			weatherData: res.locals.weather,
-			locationData: res.locals.location
+			locationData: res.locals.weatherLocation
 		})
 
 	},
