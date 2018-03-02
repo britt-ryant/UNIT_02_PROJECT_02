@@ -131,6 +131,7 @@ module.exports = {
 			})
 		})
 	},
+
 	//delete the instance of the fish in the user_information table
 	destroy(req, res, next) {
 		userDB.remove(parseInt(req.params.id))

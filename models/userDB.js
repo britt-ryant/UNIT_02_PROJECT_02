@@ -53,6 +53,7 @@ module.exports = {
 		return db.many(`SELECT * FROM user_information WHERE user_id = $1`, id);
 	},
 
+
 	remove(id) {
 		return db.none(`DELETE FROM user_information 
 			WHERE id = $1`, id);
