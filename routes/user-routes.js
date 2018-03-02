@@ -14,12 +14,12 @@ userRouter.route(`/mypage`)
 
 userRouter.route(`/mypage/:id`)
 	.get(mainController.getListOfLocations, userController.userEditInfo, views.editFish)
-	.put(mainController.isNumber, userController.updateFish, views.handleSubmitFish)
+	.put(mainController.isNumber, userController.updateFish, userController.checkLoc, userController.addLocationToFish, views.handleSubmitFish)
 	.delete(userController.destroy, userController.isListFull, views.handleSubmitFish)
 
 userRouter.route(`/myfish/:species`)
 	.get(mainController.getListOfLocations, fishListController.fishSpecific, views.submitFish)
-	.post(userController.checkLoggedIn, mainController.isNumber, userController.createUserFish, userController.checkLoc,userController.addLocationToFish, views.handleSubmitFish)
+	.post(userController.checkLoggedIn, mainController.isNumber, userController.createUserFish, userController.checkLoc, userController.addLocationToFish, views.handleSubmitFish)
 
 
 module.exports = userRouter;

@@ -15,10 +15,8 @@ module.exports = {
 	getListOfLocations(req, res, next) {
 		mainDB.getLocations()
 			.then(results => {
-				console.log(results)
 				res.locals.locations = results;
 				next()
-				console.log(res.locals.locations)
 			})
 			.catch(err => {
 				next(err)
@@ -74,12 +72,10 @@ module.exports = {
 	},
 	//Check the weight entry in the input forms to see if the input value is a number, if so, allow submission, if not, display warning message
 	isNumber(req, res, next) {
-		console.log(`right here`, req.body.weight)
 		if(isNaN(parseInt(req.body.weight))) {
 			req.session.error = `"${req.body.weight}" is not a number, please enter weight in lbs`;
 			res.redirect(`back`)
 		} else {
-			console.log(`next step`)
 			req.session.error = " ";
 			next();
 		}

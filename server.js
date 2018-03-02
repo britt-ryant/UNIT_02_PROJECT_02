@@ -1,7 +1,7 @@
 //This is the main server.js for my Unit_02 project
 
 //Require packages for the main server.js
-
+require(`dotenv`).config();
 const express = require(`express`);
 const logger = require('morgan');
 const bodyParser = require('body-parser');

@@ -54,7 +54,7 @@ module.exports = {
 	checkLoc(req, res, next) {
 		let locAdd = {
 			fish_id: parseInt(req.body.species),
-			location_id: parseInt(req.body.location)
+			location_id: parseInt(req.body.locations)
 		};
 		userDB.checkIfLoc(locAdd)
 		.then(result => {
@@ -68,7 +68,7 @@ module.exports = {
 	addLocationToFish(req, res, next) {
 		let locAdd = {
 			fish_id: req.body.species,
-			location_id: req.body.location
+			location_id: req.body.locations
 		};
 		userDB.addLoc(locAdd)
 		.then(result => {
