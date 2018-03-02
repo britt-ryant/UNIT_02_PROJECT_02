@@ -5,8 +5,12 @@ module.exports = {
 		return db.one(`SELECT * FROM user_id WHERE uname=$1`, uname);
 	},
 
-	createNewUser(uname){
-		return db.one(`INSERT INTO user_id(uname) VALUES ($1) RETURNING *`, uname);
+	createNewUser(cred){
+		return db.one(`INSERT INTO user_id(uname, password) VALUES ($[uname], $[password]) RETURNING *`, cred);
+	},
+
+	checkCred(cred){
+		return db.one(`SELECT * FROM user_id WHERE uname=$[uname] AND password=$[password]`, cred)
 	},
 
 	createUserFish(newEntry){

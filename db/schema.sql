@@ -53,7 +53,8 @@ CREATE TABLE locations (
 
 CREATE TABLE user_id (
 	u_id SERIAL PRIMARY KEY,
-	uname VARCHAR(255)
+	uname VARCHAR(255),
+	password VARCHAR(255)
 );
 
 CREATE TABLE user_information (

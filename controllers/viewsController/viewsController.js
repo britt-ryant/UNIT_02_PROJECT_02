@@ -34,6 +34,12 @@ module.exports = {
 		})
 	},
 
+	login(req, res) {
+		res.render(`users/login`, {
+			err: req.session.error
+		})
+	},
+
 	submitFish(req, res) {
 		let fishId = res.locals.singleFishSpecies.fish_lib_id;
 		res.render(`users/newFish`, {

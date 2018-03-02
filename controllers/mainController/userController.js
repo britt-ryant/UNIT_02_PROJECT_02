@@ -2,7 +2,6 @@ const userDB = require(`../../models/userDB.js`);
 const mainDB = require(`../../models/mainDB.js`)
 
 module.exports = {
-
 	//Check to see if the username exists in the database 	
 	checkUser(req, res, next) {
 		userDB.doesUserExist(req.body.uname)
@@ -12,9 +11,29 @@ module.exports = {
 
 		})
 		.catch(newUser => {
-			req.session.user = req.body.uname;
+			req.session.user = req.body;
 			req.session.error = " ";
 			next();
+		})
+	},
+	//Log In to an existing profile
+	logIn(req, res, next){
+		console.log(req.body)
+		userDB.checkCred(req.body)
+		.then(result => {
+			req.session.user = result;
+			res.locals.loggedIn = true;
+			next();
+		})
+		.catch(() => {
+			req.session.error = "Username and password does not match, please try again!"
+			res.redirect(`back`)
+		})
+	},
+
+	logOut(req, res, next){
+		req.session.destroy(() => {
+			res.redirect(`/`);
 		})
 	},
 	//Check to see if the user is logged in 
@@ -23,9 +42,12 @@ module.exports = {
 	},
 	//Create a new user
 	createUser(req, res, next) {
+		console.log(req.session.user)
 		userDB.createNewUser(req.session.user)
 		.then(result => {
-			req.session.user = result
+			req.session.user = result;
+			res.locals.loggedIn = true;
+			console.log(req.session.user)
 			next()
 		})
 		.catch(err => {

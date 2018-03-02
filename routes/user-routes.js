@@ -9,6 +9,12 @@ userRouter.route(`/`)
 	.get(views.makeUser)
 	.post(userController.checkUser, userController.createUser, views.handleNewUser);
 
+userRouter.route(`/login`)
+	.get(views.login)
+	.post(userController.logIn, views.handleNewUser);
+
+userRouter.get(`/logout`, userController.logOut);
+
 userRouter.route(`/mypage`)
 	.get(userController.checkLoggedIn, userController.isListFull, userController.getUserFish, views.usersPage, views.myPageError)
 
