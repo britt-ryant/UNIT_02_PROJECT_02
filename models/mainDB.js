@@ -9,6 +9,10 @@ module.exports = {
 		return db.any(`SELECT * FROM locations;`)
 	},
 
+	getLocation(id){
+		return db.one(`SELECT * FROM locations WHERE id=$1`, id)
+	},
+
 
 //************************** not used at the moment ******************************************
 

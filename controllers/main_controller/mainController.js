@@ -15,12 +15,25 @@ module.exports = {
 	getListOfLocations(req, res, next) {
 		mainDB.getLocations()
 			.then(results => {
-				res.locals.location = results;
+				console.log(results)
+				res.locals.locations = results;
 				next()
+				console.log(res.locals.locations)
 			})
 			.catch(err => {
 				next(err)
 			})
+	},
+
+	getSingleLocation(req, res, next) {
+		mainDB.getLocation(req.params.id)
+		.then(result => {
+			res.locals.weatherLocation = result;
+			next()
+		})
+		.catch(err => {
+			next(err)
+		})
 	},
 	//Select all of the fish that exist in that particular location
 	locationSpecific(req, res, next) {
@@ -61,10 +74,12 @@ module.exports = {
 	},
 	//Check the weight entry in the input forms to see if the input value is a number, if so, allow submission, if not, display warning message
 	isNumber(req, res, next) {
+		console.log(`right here`, req.body.weight)
 		if(isNaN(parseInt(req.body.weight))) {
 			req.session.error = `"${req.body.weight}" is not a number, please enter weight in lbs`;
 			res.redirect(`back`)
 		} else {
+			console.log(`next step`)
 			req.session.error = " ";
 			next();
 		}

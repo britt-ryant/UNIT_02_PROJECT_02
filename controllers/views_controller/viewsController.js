@@ -3,12 +3,13 @@
 module.exports = {
 
 	myPageError(err, req, res, next) {
-		console.log(`------> IM HERE`,req.session.user)
 		res.sendStatus(404)
 	},
 
 	index(req, res) {
-		res.render(`main/index`);
+		res.render(`main/index`, {
+			data: res.locals.locations
+		});
 	},
 
 	fullListOfSpecies(req, res){
@@ -49,6 +50,14 @@ module.exports = {
 		res.render(`users/updateFish`, {
 			data: res.locals.editFish
 		});
+	},
+
+	showWeather(req, res) {
+		res.render(`main/weather`,{
+			weatherData: res.locals.weather,
+			locationData: res.locals.location
+		})
+
 	},
 	
 	handleNewUser(req, res) {

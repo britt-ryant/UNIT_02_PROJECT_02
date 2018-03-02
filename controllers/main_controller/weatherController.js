@@ -1,25 +1,22 @@
 const rp = require('request-promise');
 const request = require('request');
+const axios = require(`axios`);
 
 
 module.exports = {
 
- 	weatherRequest(req, res, next){
- 		console.log(res.locals.location)
- 		let newArr = [];
- 		res.locals.location.forEach(loc => {
- 			// console.log(`https://api.darksky.net/forecast/7649f2e71b4e98486f4f945d6053ebe0/${loc.lat_deg}.${loc.lat_dec},-${loc.lon_deg}.${loc.lon_dec}?exclude=minutely,daily,hourly,flags`)
-	 		rp(`https://api.darksky.net/forecast/7649f2e71b4e98486f4f945d6053ebe0/${loc.lat_deg}.${loc.lat_dec},-${loc.lon_deg}.${loc.lon_dec}?exclude=minutely,daily,hourly,flags`)
-	 			.then(body => {
-	 			res.locals.weather = JSON.parse(body)
-	     		console.log(res.locals.weather);
-	     		console.log(res.locals.weather.latitude)
-	 			})
-	 			.catch(err => {
-	     			console.log(err);
-	 			});
+ 	checkWeather(req, res, next) {
+ 		let loc = res.locals.weatherLocation
+ 		axios.request({
+ 			method: `get`,
+ 			url: `https://api.darksky.net/forecast/7649f2e71b4e98486f4f945d6053ebe0/${loc.lat_deg}.${loc.lat_dec},-${loc.lon_deg}.${loc.lon_dec}?exclude=minutely,hourly,daily,alerts,flags`,
  		})
- 	}
+ 		.then(result => {
+ 			res.locals.weather = result.data.currently;
+ 			next()
+ 		})
+
+ 	},
 }
 
 

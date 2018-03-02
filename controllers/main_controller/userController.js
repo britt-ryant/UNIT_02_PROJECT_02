@@ -38,7 +38,7 @@ module.exports = {
 			user_id: req.session.user.u_id,
 			user_fish_id: parseInt(req.body.species),
 			user_fish_weight: parseInt(req.body.weight),
-			user_fish_loc_id: parseInt(req.body.location),
+			user_fish_loc_id: parseInt(req.body.locations),
 			user_fish_info: req.body.info
 		};
 		userDB.createUserFish(newFish)

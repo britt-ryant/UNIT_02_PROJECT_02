@@ -1,4 +1,32 @@
-  <h1>This is the main </h1>
+<% include ../../views/partials/boilerplate.ejs %>
+<h1>Local weather for <%=locationData.location%></h1>
 
-  <button>Try me and tell me if this works</button>
+<h2>Summary</h2>
+<p><%=weatherData.summary %></p>
+<h3>Nearest Storm Distance (mi)</h3>
+<p><%=weatherData.nearestStormDistance %></p>
+<h3>Nearest Storm Bearing (deg)</h3>
+<p><%=weatherData.nearestStormBearing %></p>
+<h3>Percent Precipitation</h3>
+<p><%=weatherData.precipProbability %></p>
+<h3>Precipitation Intensity</h3>
+<p><%=weatherData.precipIntensity %></p>
+<h3>Temperature</h3>
+<p><%=weatherData.temperature %></p>
+<h3>Pressure</h3>
+<p><%=weatherData.pressure %></p>
+<h3>Wind Speed (mph)</h3>
+<p><%=weatherData.windSpeed %></p>
+<h3>Wind Gust Speed (mph)</h3>
+<p><%=weatherData.windGust %></p>
+<h3>Wind Bearing (deg)</h3>
+<p><%=weatherData.windBearing %></p>
+<h3>Visibility (mi)</h3>
+<p><%=weatherData.visibility %></p>
 
+
+<a href="/" class="homebutton">Homepage</a>
+
+<div class="footer">
+<% include ../../views/partials/footer.ejs %>
+</div>
