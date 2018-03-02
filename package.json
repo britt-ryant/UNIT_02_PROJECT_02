@@ -12,6 +12,9 @@
     "type": "git",
     "url": "git+https://github.com/britt-ryant/UNIT_02_PROJECT_02.git"
   },
+  "engines": {
+    "node": "9.4.0"
+  },
   "author": "Ryan Britt",
   "license": "MIT",
   "bugs": {
