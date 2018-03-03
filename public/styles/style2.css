@@ -265,7 +265,9 @@ select:Hover{
 	margin: 0 auto;
 }
 .containerUserBackground{
-	height: 100vh;
-	width: 100vw;
+	min-height: 1500px;
+}
+.warning{
+	font-size: 20px;
 }
 
