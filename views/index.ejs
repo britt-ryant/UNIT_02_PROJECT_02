@@ -1,23 +1,19 @@
 <% include ../views/partials/boilerplate.ejs %>
+<div class="containerIndex">
+	
+	<h1 class="mainTitle"><%=documentTitle%></h1>
+	<h2><%=mainContent%></h2>
+	<p><%=subContent%></p>
+	
+	<br>
 
-<h1><%= documentTitle %></h1>
+	<div>
+		<a class="mainButton" href="/gofish">Full list of regions</a>
+	</div>
 
-<p><%=mainContent%></p>
+	<br>
+	
+	<a class="subLink" href="/user">Create a New User</a>
 
-
-<div class="mainPageLinks">
-<a href="/fishlist" id="test">Full list of Species</a>
 </div>
-<div class="mainPageLinks">
-<a href="/gofish">Full list of regions</a>
-</div>
-<div class="mainPageLinks">
-<a href="/user">Create a New User</a>
-</div>
-<div class="mainPageLinks">
-<a href="/user/mypage">My Page</a>
-</div>
-
-<div class="footer">
 <% include ../views/partials/footer.ejs %>
-</div>

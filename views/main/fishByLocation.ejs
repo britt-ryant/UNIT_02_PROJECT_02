@@ -1,44 +1,45 @@
 <% include ../../views/partials/boilerplate.ejs %>
+<script src='/src/jquery.js'></script>
+<script src='/src/main.js'></script>
 
+<div class="containerBackground">
+	<div class="containerInformation">
+		<h1>Species List In <%=fish[0].location%></h1>
 
-<h1>Species List In <%=fish[0].location%></h1>
-
-<ul>
-	<% fish.forEach(fishOne => { %>
-		<div class="listedFish">
-			<a class="aTag" href="/fishlist/<%=fishOne.species%>">
-				<li class="fullListLoc">
-					<h2><%=fishOne.species%></h2><br>
-				</li>
-				<div class="additInfo">	
-					<h3>Max Weight:</h3>
-					<p><%=fishOne.weight%>  lbs</p>
+		<ul>
+			<% fish.forEach(fishOne => { %>
+				<div class="singleSpecies">
+					<a href="/fishlist/<%=fishOne.species%>">
+						<li>
+							<h2><%=fishOne.species%></h2>
+						</li>
+						<div>	
+							<h3>Max Weight:</h3>
+							<p><%=fishOne.weight%>  lbs</p>
+						</div>
+					</a>
+					<a href="/user/myfish/<%=fishOne.species%>">Add to my fish List</a>
 				</div>
-			</a><br>
-			<a class="addButton" href="/user/myfish/<%=fishOne.species%>">Add to my fish List</a>
-		</div>
-	<%})%>
-</ul>
+			<%})%>
+		</ul>
 
-<a href="/" class="homebutton">Homepage</a>
 
-<div class="newFishForm">
-	<h2>New fish to list</h2>
+			<div class="newFishForm">
+				<h2>New fish to list</h2>
+				<form action="/gofish/<%=fish[0].id%>" method="post">
+				  <input id="species" name="species" type="text"/><br>
+				  <input id="weight" name="weight" type="text"/><br>
+				  <input  type="submit" value="Add it!" />
+				</form>
+				<%-message%>
+			</div>
+			<input class="toggleForm" type="submit" value="Click to add a fish" />
 
-	<%-message%>
 
-	<form action="/gofish/<%=fish[0].id%>" method="post">
-	  <input class="inputBox" name="species" type="text" placeholder="Species"/><br>
-	  <input class="inputBox" name="weight" type="text" placeholder="Weight"/><br>
-	  <input class="buttonAdd" type="submit" value="Add it!" />
-	</form>
+
+
+
+	</div>
 </div>
-
-
-
-
-
-
-
 
 <% include ../../views/partials/footer.ejs %>

@@ -69,8 +69,9 @@ app.use(`/weather`, weatherRouter);
 //Landing page
 app.get(`/`, (req, res) => {
 	res.render(`index`, {
-		documentTitle: `Fish app`,
-		mainContent: `This is my fishing app, ADD MORE TEXT HERE!!!`
+		documentTitle: `Catch Tracker`,
+		mainContent: `Find fish anywhere in the world`,
+		subContent: `Keep track of your catches by creating a profile`
 	})
 });
 

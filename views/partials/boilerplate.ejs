@@ -4,19 +4,23 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title>Fishing app</title>
-  <link rel='stylesheet' type='text/css' href='/styles/style.css'>
+  <link rel='stylesheet' type='text/css' href='/styles/style2.css'>
+  <link href="https://fonts.googleapis.com/css?family=Anton|Bowlby+One+SC|Comfortaa" rel="stylesheet">
 </head>
 <body>
 	<div class="navBar">
+		<a class="navBarLink" href="/">Home</a>
+
 		<% if (user) {%>
-			
-			<a href="/user/logout">Log Out</a>
-
+			<a class="navBarLink" href="/user/logout">Log Out</a>
 		<%}else{%>
-		<a href="/user/login">Log In</a>
-
+			<a class="navBarLink" href="/user/login">Log In</a>
 		<%}%>
-		<a href="/">Home</a>
+
+		<a class="navBarLink" href="/user/mypage">My Page</a>
+
+		<a class="navBarLink" href="/fishlist" id="test">Full Species List</a>
+
 	</div>
 
 	
