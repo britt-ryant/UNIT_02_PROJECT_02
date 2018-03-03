@@ -55,6 +55,11 @@ app.use(function(req, res, next) {
 	next();
 })
 
+app.use(function(req, res, next) {
+	res.locals.user = req.session.user;
+	next();
+})
+
 //**** Route to generate random fish information.  Will be set to generate a random fish for now and return the json object for developmental purposes, will modify later ****
 app.use(`/gofish`, mainRouter);
 app.use(`/fishlist`, fishRouter);

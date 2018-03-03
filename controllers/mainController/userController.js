@@ -22,7 +22,7 @@ module.exports = {
 		userDB.checkCred(req.body)
 		.then(result => {
 			req.session.user = result;
-			res.locals.loggedIn = true;
+			// req.session.ldgIn =	"logout";
 			next();
 		})
 		.catch(() => {
@@ -33,6 +33,7 @@ module.exports = {
 
 	logOut(req, res, next){
 		req.session.destroy(() => {
+			// req.session.ldgIn = "login";
 			res.redirect(`/`);
 		})
 	},
@@ -46,7 +47,7 @@ module.exports = {
 		userDB.createNewUser(req.session.user)
 		.then(result => {
 			req.session.user = result;
-			res.locals.loggedIn = true;
+			// req.session.ldgIn = "logout";
 			console.log(req.session.user)
 			next()
 		})
