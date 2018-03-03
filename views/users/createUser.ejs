@@ -1,11 +1,17 @@
-<h1>Create a New User</h1>
 
-<%-message%>
+<% include ../../views/partials/boilerplate.ejs %>
+	
+<div class="containerIndex">
+	<h1>Create a New User</h1>
 
-<form action="/user" method="post">
-  <input class="inputBox" name="uname" type="text" placeholder="Username"/>
-   <input class="inputBox" name="password" type="text" placeholder="Password"/>
-  <input class="buttonAdd" type="submit" value="Create User!" />
-</form>
+	<%-message%>
 
-<p>if your account already exists, <a href="/user/login">Login!</a></p>
+	<form class="userForm"action="/user" method="post">
+	  <input class="inputBoxStd" name="uname" type="text" placeholder="Username"/>
+	   <input class="inputBoxStd" name="password" type="text" placeholder="Password"/>
+	  <input class="smallButton" type="submit" value="Create User!" />
+	</form>
+
+	<p>if your account already exists, <a href="/user/login">Login!</a></p>
+</div>
+<% include ../../views/partials/footer.ejs %>

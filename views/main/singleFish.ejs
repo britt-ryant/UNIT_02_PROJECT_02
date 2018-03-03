@@ -1,20 +1,16 @@
 <% include ../../views/partials/boilerplate.ejs %>
-
-<h1><%=singleFishSpecies.species%></h1>
-
-<h2>Max Weight: <%=singleFishSpecies.weight%> lbs</h2>
-
-<h3>List of all locations that you can find this species</h3>
-
-<ul>
-	<% fishLocations.forEach((place) => { %> 
-
-		<li class="fullList"><%=place.location %></li>
-
-	<%})%>
-</ul>
-
-
-<a href="/" class="homebutton">Homepage</a>
+	<div class="containerIndex">
+		<h1><%=singleFishSpecies.species%></h1>
+		<h3>Max Weight: <%=singleFishSpecies.weight%> lbs</h3><br>
+		<h3>List of all locations that you can find this species</h3>
+		<ul>
+			<% fishLocations.forEach((place) => { %> 
+				<li><%=place.location %></li>
+			<%})%>
+		</ul>
+		<div class="spacer">
+		<a class="mainButton" href="/gofish">back to regions</a>
+		</div>
+	</div>
 
 <% include ../../views/partials/footer.ejs %>

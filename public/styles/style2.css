@@ -10,6 +10,7 @@ body {
 	background-position: -300px;
 	text-align: center;
 	margin:0 auto;
+	min-width: 1200px;
 },
 
 p{
@@ -146,13 +147,13 @@ footer {
 	border-radius: 5px;
 	text-decoration: none;
 	padding: 10px;
+	min-width: 1000px;
 }
 .containerBackground {
 	color: white;
 	font-size: 30px;
-	margin: 0vh auto;
+	margin: 0 auto;
 	/*border: 2px solid black;*/
-	width: 100vw;
 	background: radial-gradient(rgba(0, 12, 54, .9),rgba(0, 12, 54, .8), rgba(0, 12, 54, .5)) ;
 	border-radius: 5px;
 	text-decoration: none;
@@ -161,7 +162,7 @@ footer {
 }
 .containerInformation{
 	margin: 10vh auto;
-	max-width: 1100px;
+	max-width: 1200px;
 }
 .informationListTitle{
 }
@@ -214,6 +215,57 @@ h3, .singleFishSpecies{
 	color: rgb(167, 38, 38);
 	font-size: 20px;
 }
+.spacer{
+	margin-bottom: 20px;
+}
+.smallButton{
+	color: rgba(255, 255, 255, 1);
+	border: 2px solid rgb(255, 255, 255);
+	padding: 10px;
+	margin: 10px;
+	border-radius: 10px;
+}
+.smallButton:Hover{
+	color: rgba(255, 255, 255, 1);
+	background-color: rgba(255, 255, 255, .7);
 
+}
+.inputBoxStd{
+	border: 2px solid rgb(255, 255, 255);
+	background-color: rgba(255, 255, 255, .2);
+	border-radius: 5px;
+	padding: 10px;
+}
+select{
+	-webkit-appearance: none;
+	background: none;
+    color: inherit;
+    border: 2px solid rgba(255, 255, 255, .5);
+    padding: 10px;
+    font: inherit;
+    cursor: pointer;
+    outline: inherit;
+}
+select:Hover{
+	background-color: rgba(255, 255, 255, .5);
+	border:  2px solid rgba(255, 255, 255, .1);
+}
+.space{
+	margin: 20px auto;
+}
 
+.myPageButton{
+	width: 500px;
+	margin-bottom: 20px;
+}
+#info{
+	max-width: 700px;
+	overflow: scroll;
+	text-align: center;
+	margin: 0 auto;
+}
+.containerUserBackground{
+	height: 100vh;
+	width: 100vw;
+}
 

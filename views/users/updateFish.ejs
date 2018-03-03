@@ -1,11 +1,14 @@
-<h1> Update this fish in your list! </h1>
-<h2>Update fish in list</h2>
+<% include ../../views/partials/boilerplate.ejs %>	
+	<div class="containerIndex">
+		<h1> Update this fish in your list! </h1>
 
-<%-message%>
-<form action="/user/mypage/<%=data.id%>?_method=PUT" method="post">
-	<input name="species" type="hidden" value="<%=data.user_fish_id%>"/>
-  	<input name="weight" type="text" placeholder="Weight"/>
-  	<% include ../../views/partials/locationsDropdown.ejs %>
-	<input name="info" type="text" placeholder="Info"/>
-	<input type="submit" value="Update It!" />
-</form>
+		<%-message%>
+		<form action="/user/mypage/<%=data.id%>?_method=PUT" method="post">
+			<input class="inputBoxStd" name="species" type="hidden" value="<%=data.user_fish_id%>"/>
+		  	<input class="inputBoxStd" name="weight" type="text" placeholder="Weight"/>
+		  	<% include ../../views/partials/locationsDropdown.ejs %>
+			<input class="inputBoxStd"name="info" type="text" placeholder="Info"/>
+			<input class="smallButton" type="submit" value="Update It!" />
+		</form>
+	</div>
+<% include ../../views/partials/footer.ejs %>

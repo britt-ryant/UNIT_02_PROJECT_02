@@ -2,6 +2,7 @@ const db = require(`../config/connection.js`);
 
 module.exports = {
 	doesUserExist(uname){
+		console.log(`-----> MADE IT HERE `, uname)
 		return db.one(`SELECT * FROM user_id WHERE uname=$1`, uname);
 	},
 

@@ -2,30 +2,23 @@
 
 $(() => {
 	let toggle=0
-
 		console.log(`script loaded`)
 		$(`.toggleForm`).on(`click`, () => {
-			if(toggle === 0) {
+			 if(toggle === 0) {
 				console.log(`connected and working`)
 				$(`.newFishForm`).toggleClass(`show`)
-				$(`#species`).attr(`placeholder`, `species`).css({"border":"2px solid rgba(255, 255, 255, .5)", 
-	"border-radius": "5px"})
-				$(`#weight`).attr(`placeholder`, `weight`).css({"border":"2px solid rgba(255, 255, 255, .5)", 
-	"border-radius": "5px"})
-				$(`.msg`).css({"color":"rgba(255,255,255,0)"})
-				toggle = 1;
-		} else {
-				console.log(`connected and working`)
+				$(`#submit`).toggleClass(`smallButton`)
+				$(`#species`).attr(`placeholder`, `species`).toggleClass(`inputBoxStd`)
+				$(`#weight`).attr(`placeholder`, `weight`).toggleClass(`inputBoxStd`)
+				toggle=1
+			}else{
 				$(`.newFishForm`).toggleClass(`show`)
-				$(`#species`).attr(`placeholder`, ``).css({"border":"none", 
-	"border-radius": "5px"})
-				$(`#weight`).attr(`placeholder`, ``).css({"border":"none", 
-	"border-radius": "5px"})
-				$(`.msg`).css({"color":"rgba(255,255,255,0)"})
-				toggle = 0;
-		}
-
-	})
+				$(`#submit`).toggleClass(`smallButton`)
+				$(`#species`).attr(`placeholder`, ``).toggleClass(`inputBoxStd`)
+				$(`#weight`).attr(`placeholder`, ``).toggleClass(`inputBoxStd`)
+				toggle=0
+			}
+		})
 })
 
 // 39.419390, -72.244713

@@ -1,12 +1,17 @@
-<h1> Add a new <%=data%> to your list! </h1>
-<h2>New fish to list</h2>
 
-<%-message%>
+<% include ../../views/partials/boilerplate.ejs %>
 
-<form action="/user/myfish/<%=data%>" method="post">
-	<input name="species" type="hidden" value="<%=fish_id%>"/>
-  <input name="weight" type="text" placeholder="Weight"/>
-  <% include ../../views/partials/locationsDropdown.ejs %>
-  <input name="info" type="text" placeholder="Info"/>
-  <input type="submit" value="Add it!" />
-</form>
+<div class="containerIndex">
+	<h1 class="formTitle"> Add a new <%=data%> to your list! </h1>
+
+	<%-message%>
+
+	<form class="userForm" action="/user/myfish/<%=data%>" method="post">
+		<input class="inputBoxStd" name="species" type="hidden" value="<%=fish_id%>"/>
+	  	<input class="inputBoxStd" name="weight" type="text" placeholder="Weight"/>
+	 	<% include ../../views/partials/locationsDropdown.ejs %>
+	  	<input class="inputBoxStd" name="info" type="text" placeholder="Info"/>
+	  	<input class="smallButton" type="submit" value="Add it!" />
+	</form>
+</div>
+<% include ../../views/partials/footer.ejs %>

@@ -1,22 +1,19 @@
 <% include ../../views/partials/boilerplate.ejs %>
-
-<h1>Full Species List</h1>
-
-<ul>
-	<% allFish.forEach((fish) => { %>
-		<li class="fullList">
-		<h2 class="speciesName">
-			<a class="aTag" href="/fishlist/<%=fish.species%>"><%= fish.species %></a>
-		</h2><br>
-		<h3 class="addButton">
-			<a class="aTag" href="/user/myfish/<%=fish.species%>">Add to my fish List</a>
-			</h3>
-		</li>
-	<% }) %> 
-</ul>
-
-<a href="/" class="homebutton">Homepage</a>
-
-<div class="footer">
-	<% include ../../views/partials/footer.ejs %>
+<div class="containerBackground">
+	<div class="containerInformation">	
+		<h1>Full Species List</h1>
+		<ul>
+			<% allFish.forEach((fish) => { %>
+				<li>
+				<h2>
+					<a href="/fishlist/<%=fish.species%>"><%= fish.species %></a>
+				</h2><br>
+				<h3>
+					<a class="mainButton" href="/user/myfish/<%=fish.species%>">Add to my fish List</a>
+					</h3>
+				</li>
+			<% }) %> 
+		</ul>
+	</div>
 </div>
+	<% include ../../views/partials/footer.ejs %>
