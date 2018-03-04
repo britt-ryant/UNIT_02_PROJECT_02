@@ -2,18 +2,22 @@
 <div class="containerIndex">
 	
 	<h1 class="mainTitle"><%=documentTitle%></h1>
+	
+	<% if(user) {%>	
+		<h3 class="welcomeMsg">Welcome <%=user.uname%> !</h3>
+	<%}%>
+
 	<h2><%=mainContent%></h2>
 	<p><%=subContent%></p>
-	
-	<br>
 
 	<div>
 		<a class="mainButton" href="/gofish">Full list of regions</a>
 	</div>
 
 	<br>
-	
+	<% if(!user) {%>
 	<a class="subLink" href="/user">Create a New User</a>
+	<%}%>
 
 </div>
 <% include ../views/partials/footer.ejs %>

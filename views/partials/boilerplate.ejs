@@ -21,6 +21,10 @@
 
 		<a class="navBarLink" href="/fishlist" id="test">Full Species List</a>
 
+		<%if(user){%>
+			<a class="uname navBarLink" href="/user/mypage"><%=user.uname%>%></a>
+		<%}%>
+
 	</div>
 
 	

@@ -57,6 +57,7 @@ app.use(function(req, res, next) {
 
 app.use(function(req, res, next) {
 	res.locals.user = req.session.user;
+	console.log(res.locals.user)
 	next();
 })
 
@@ -68,10 +69,12 @@ app.use(`/weather`, weatherRouter);
 
 //Landing page
 app.get(`/`, (req, res) => {
+	console.log(req.session.user, res.locals.user)
 	res.render(`index`, {
 		documentTitle: `Catch Tracker`,
 		mainContent: `Find fish anywhere in the world`,
-		subContent: `Keep track of your catches by creating a profile`
+		subContent: `Keep track of your catches by creating a profile`,
+		data: res.locals.user
 	})
 });
 
