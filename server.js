@@ -73,7 +73,7 @@ app.get(`/`, (req, res) => {
 	res.render(`index`, {
 		documentTitle: `Catch Tracker`,
 		mainContent: `Find fish anywhere in the world`,
-		subContent: `Keep track of your catches by creating a profile`,
+		subContent: `Keep track of your catches by creating a profile or logging in`,
 		data: res.locals.user
 	})
 });

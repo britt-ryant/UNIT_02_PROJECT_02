@@ -8,8 +8,13 @@
 	<%}%>
 
 	<h2><%=mainContent%></h2>
-	<p><%=subContent%></p>
-
+	<%if(!user){%>
+		<p><%=subContent%></p>
+		<br>
+	<%}else{%>
+		<br>	
+		<br>
+	<%}%>
 	<div>
 		<a class="mainButton" href="/gofish">Full list of regions</a>
 	</div>

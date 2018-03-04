@@ -113,6 +113,10 @@ footer {
 	border: 1px solid rgba(255, 255, 255, 1);
 }
 
+.mainPage{
+	margin-top: 20px;
+}
+
 .back{
 	z-index: 3;
 	position: fixed;
