@@ -1,18 +1,16 @@
 <% include ../../views/partials/boilerplate.ejs %>
 <div class="containerIndex">
-<h1 class="contentTitle">Select Region</h1>
-
-<ul>
-	<% data.forEach((loc) => { %>
-		<li class="smallList">
-			<a href="/gofish/<%=loc.id%>"><%= loc.location %></a>
-			<form class="weatherForm" action="/weather/<%=loc.id%>" method="get">
-				<input class="weatherButton" type="submit" value="Check the weather for <%=loc.location%>" />
-			</form>
-		</li>
-	<% }) %> 
-</ul>
-
+	<h1 class="contentTitle">Select Region</h1>
+	<ul>
+		<% data.forEach((loc) => { %>
+			<li class="smallList">
+				<a href="/gofish/<%=loc.id%>"><%= loc.location %></a>
+				<form class="weatherForm" action="/weather/<%=loc.id%>" method="get">
+					<input class="weatherButton" type="submit" value="Check the weather for <%=loc.location%>" />
+				</form>
+			</li>
+		<% }) %> 
+	</ul>
 </div>
 
 

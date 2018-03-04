@@ -3,26 +3,23 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Fishing app</title>
-  <link rel='stylesheet' type='text/css' href='/styles/style2.css'>
-  <link href="https://fonts.googleapis.com/css?family=Anton|Bowlby+One+SC|Comfortaa" rel="stylesheet">
+	<title>CATCH TRACKER</title>
+	<link rel="icon" href="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/Fish_icon.svg/120px-Fish_icon.svg.png" type="image/png" />
+  	<link rel='stylesheet' type='text/css' href='/styles/style2.css'>
+  	<link href="https://fonts.googleapis.com/css?family=Anton|Bowlby+One+SC|Comfortaa" rel="stylesheet">
 </head>
 <body>
 	<div class="navBar">
 		<a class="navBarLink" href="/">Home</a>
-
 		<% if (user) {%>
 			<a class="navBarLink" href="/user/logout">Log Out</a>
 		<%}else{%>
 			<a class="navBarLink" href="/user/login">Log In</a>
 		<%}%>
-
 		<a class="navBarLink" href="/user/mypage">My Page</a>
-
 		<a class="navBarLink" href="/fishlist" id="test">Full Species List</a>
-
 		<%if(user){%>
-			<a class="uname navBarLink" href="/user/mypage"><%=user.uname%>%></a>
+			<a class="uname navBarLink" href="/user/mypage">👤 <%=user.uname%>%></a>
 		<%}%>
 
 	</div>

@@ -1,3 +1,5 @@
+-- I have created these tables for the inital build of the app, these table need to be populated with much more information than what is present, will address at a later date but is not necessary for the demonstrational purposes of this project
+
 INSERT INTO fish_library (species, weight, caught, info) VALUES 
 (
 	'Bigeye Tuna',

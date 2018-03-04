@@ -1,3 +1,7 @@
+
+
+//require the models that this controller calls methods from
+
 const fishInfoDB = require(`../../models/fishInfoDB.js`);
 
 module.exports = {
@@ -17,21 +21,21 @@ module.exports = {
 		fishInfoDB.singleFishFullInfo(req.params.species)
 		.then(result => {
 			res.locals.singleFishSpecies = result;
-			next()
+			next();
 		})
 		.catch(err => {
-			next(err)
+			next(err);
 		})
 	},
 	//Grab all of the locations that exist for that particular fish (requested) from the fish_location table.
 	fishSpecificLocation(req, res, next) {
 		fishInfoDB.getAllLocationsForOne(req.params.species)
 		.then(results => {
-			res.locals.fishLocations = results
-			next()
+			res.locals.fishLocations = results;
+			next();
 		})
 		.catch(err => {
-			next(err)
+			next(err);
 		})
 	}
 };

@@ -1,36 +1,39 @@
-//require the main database (fish_library_db)
+
+//require the models that this controller calls methods from
+
 const mainDB = require(`../../models/mainDB.js`)
 
 module.exports = {
 
 //**************** ROUTER TESTING FUNCTION FOR CREATING NEW ROUTES ***************************
 	test(req, res, next) {
-		console.log(`being passed`)
-		res.render(`users/testPage`)
-		console.log(req.session.user)
+		console.log(`being passed`);
+		res.render(`users/testPage`);
+		console.log(req.session.user);
 	},
 
 //**************** ROUTER TESTING FUNCTION FOR CREATING NEW ROUTES ***************************
+
 	//Select all of the locaiton information from the locations table to be displayed on the fishByLocations page
 	getListOfLocations(req, res, next) {
 		mainDB.getLocations()
 			.then(results => {
 				res.locals.locations = results;
-				next()
+				next();
 			})
 			.catch(err => {
-				next(err)
+				next(err);
 			})
 	},
-
+	//Select all of the information for a single requested location 
 	getSingleLocation(req, res, next) {
 		mainDB.getLocation(req.params.id)
 		.then(result => {
 			res.locals.weatherLocation = result;
-			next()
+			next();
 		})
 		.catch(err => {
-			next(err)
+			next(err);
 		})
 	},
 	//Select all of the fish that exist in that particular location
@@ -38,10 +41,10 @@ module.exports = {
 		mainDB.showByLocation(req.params.id)
 		.then(results => {
 			res.locals.fish = results;
-			next()
+			next();
 		})
 		.catch(err => {
-			next(err)
+			next(err);
 		})
 	}, 
 	//Create a new fish when the user enters the primary information for that fish
@@ -64,7 +67,7 @@ module.exports = {
 		mainDB.makeNewLocation(newFishInfo)
 		.then(result => {
 			res.locals.newLoc = result;
-			next()
+			next();
 		})
 		.catch(err => {
 			next(err);
@@ -74,12 +77,12 @@ module.exports = {
 	isNumber(req, res, next) {
 		if(isNaN(parseInt(req.body.weight))) {
 			req.session.error = `"${req.body.weight}" is not a number, please enter weight in lbs`;
-			res.redirect(`back`)
+			res.redirect(`back`);
 		} else {
 			req.session.error = " ";
 			next();
 		}
-	},
+	}
 
 
 }

@@ -5,12 +5,9 @@
 		<ul>
 			<% allFish.forEach((fish) => { %>
 				<li>
-				<h2>
-					<a href="/fishlist/<%=fish.species%>"><%= fish.species %></a>
-				</h2><br>
-				<h3>
-					<a class="mainButton" href="/user/myfish/<%=fish.species%>">Add to my fish List</a>
-					</h3>
+				<h2><a href="/fishlist/<%=fish.species%>"><%= fish.species %></a></h2>
+				<br>
+				<h3><a class="mainButton" href="/user/myfish/<%=fish.species%>">Add to my fish List</a></h3>
 				</li>
 			<% }) %> 
 		</ul>

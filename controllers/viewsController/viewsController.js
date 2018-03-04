@@ -1,5 +1,9 @@
 //this is the main views controller for my app
 
+//pretty self explanitory, mostly rendering all of the different views and sometimes passing data in the form of res.locals
+
+//the handler methods use redirect
+
 module.exports = {
 
 	myPageError(err, req, res, next) {

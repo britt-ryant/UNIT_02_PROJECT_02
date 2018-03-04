@@ -22,18 +22,16 @@ module.exports = {
 		userDB.checkCred(req.body)
 		.then(result => {
 			req.session.user = result;
-			// req.session.ldgIn =	"logout";
 			next();
 		})
 		.catch(() => {
-			req.session.error = "Username and password does not match, please try again!"
-			res.redirect(`back`)
+			req.session.error = "Username and password does not match, please try again!";
+			res.redirect(`back`);
 		})
 	},
-
+	//Log Out of sesison or destroy the session
 	logOut(req, res, next){
 		req.session.destroy(() => {
-			// req.session.ldgIn = "login";
 			res.redirect(`/`);
 		})
 	},
@@ -43,16 +41,13 @@ module.exports = {
 	},
 	//Create a new user
 	createUser(req, res, next) {
-		console.log(req.session.user)
 		userDB.createNewUser(req.session.user)
 		.then(result => {
 			req.session.user = result;
-			// req.session.ldgIn = "logout";
-			console.log(req.session.user)
-			next()
+			next();
 		})
 		.catch(err => {
-			next(err)
+			next(err);
 		})
 	},
 	//Create a new fish that is associated with that user and storing unique information the pertains to that user/fish
@@ -67,10 +62,10 @@ module.exports = {
 		userDB.createUserFish(newFish)
 		.then(result => {
 			res.locals.newUserFish = result;
-			next()
+			next();
 		})
 		.catch(err => {
-			next(err)
+			next(err);
 		})
 	},
 	//Check the current created instance to see if the the location/fish combo already exists in the fish_location table 
@@ -81,10 +76,10 @@ module.exports = {
 		};
 		userDB.checkIfLoc(locAdd)
 		.then(result => {
-			res.redirect(`/user/mypage`)
+			res.redirect(`/user/mypage`);
 		})
 		.catch(() => {
-			next()
+			next();
 		})
 	},
 	//If the location/fish instance does not exist in the fish_locaiton table, add that instance to the fish_location table
@@ -96,10 +91,10 @@ module.exports = {
 		userDB.addLoc(locAdd)
 		.then(result => {
 			res.locals.newLoc = result;
-			next()
+			next();
 		})
 		.catch(err => {
-			next(err)
+			next(err);
 		})
 	},
 	//Grab all of the saved fish for the current user and display them on the users fish page
@@ -107,10 +102,10 @@ module.exports = {
 		userDB.getAllUserData(req.session.user.u_id)
 		.then(results => {
 			res.locals.userData = results;
-			next()
+			next();
 		})
 		.catch(err => {
-			next(err)
+			next(err);
 		})
 	},
 	//Edit the information that is displayed on the user fish page for each fish
@@ -121,7 +116,7 @@ module.exports = {
 			next();
 		})
 		.catch(err => {
-			next(err)
+			next(err);
 		})
 
 	},
@@ -136,25 +131,24 @@ module.exports = {
 		userDB.updateInfo(insertIntoUpdate)
 		.then(result => {
 			res.locals.updatedFish = result;
-			next()
+			next();
 		})
 		.catch(err => {
-			next(err)
+			next(err);
 		})
 	},
 	//Check to see if there are any instances saved in the user_information table for that particular user, if not, show the page that displays the message that the table is empty and provide links to add fish
 	isListFull(req, res, next) {
 		userDB.doesListExist(req.session.user.u_id)
 		.then(result => {
-			next()
+			next();
 		})
 		.catch(err => {
 			res.render(`users/userPageEmpty`, {
 				data: req.session.user.uname
-			})
+			});
 		})
 	},
-
 	//delete the instance of the fish in the user_information table
 	destroy(req, res, next) {
 		userDB.remove(parseInt(req.params.id))

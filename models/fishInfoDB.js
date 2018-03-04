@@ -1,18 +1,19 @@
+
+//require the connections file in the controllers directory for pg-promise
 const db = require(`../config/connection`)
 
 module.exports = {
-
+	//select all from the fish_library table
 	showLib() {
 		return db.many(`SELECT * FROM fish_library;`)
 	},
-
-
+	//retrieve information about a single species
 	singleFishFullInfo(fish) {
 		return db.one(`SELECT * 
 			FROM fish_library
 			WHERE species=$1`, fish)
 	},
-
+	//retrieve all of the locations present in the table of locations
 	getAllLocationsForOne(fishSpecies) {
 		return db.any(`SELECT locations.location
 			FROM fish_library 
