@@ -13,8 +13,12 @@
 					</div>
 					<p>Caught in the <%= fish.location %></p>
 					<div class="space">
+					
+					<%if(fish.user_fish_info !== ''){ %>
 						<h4>Relevant information about this fish:</h4>
 						<p id="info"><%= fish.user_fish_info%></p>
+					<% } %>
+					
 					</div>
 					<form action="/user/mypage/<%=fish.id%>" method="get">
 						<input class="mainButton myPageButton" type="submit" value="Edit this catch" />
