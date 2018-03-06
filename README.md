@@ -31,6 +31,7 @@ Phases of Completion
 *********************************
 
 
+YouTube walkthrough of the project: https://www.youtube.com/edit?o=U&video_id=WgtVA6jFNDY
 
 Links and Resources
 MDN
